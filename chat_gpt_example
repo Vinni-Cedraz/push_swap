@@ -1,0 +1,29 @@
+void quicksort(t_stack *stack, int size)
+{
+    // base case: if stack size is 1 or 0, return
+    if (size <= 1)
+        return;
+
+    // choose pivot element
+    int pivot = choose_pivot(stack, size);
+
+    // partition stack into two sub-stacks
+    t_stack *less = new_stack();
+    t_stack *greater = new_stack();
+    partition(stack, less, greater, pivot);
+
+    // recursively sort sub-stacks
+    quicksort(less, less->size);
+    quicksort(greater, greater->size);
+
+    // reassemble sorted sub-stacks
+    while (!is_empty(less))
+        push(stack, pop(less));
+    push(stack, pivot);
+    while (!is_empty(greater))
+        push(stack, pop(greater));
+
+    // clean up
+    free_stack(less);
+    free_stack(greater);
+}
