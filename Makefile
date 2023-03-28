@@ -17,7 +17,12 @@ CFLAGS = -Wall -Wextra -Werror -g $(INC)
 
 SRCS = \
 	  main \
-	  pa
+	  print_stack \
+	  push \
+	  rotate \
+	  reverse_rotate \
+	  tests \
+	  swap
 
 SRCS_PATH = src/
 OBJS_PATH = objs/
