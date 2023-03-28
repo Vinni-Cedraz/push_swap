@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:50:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/27 21:16:46 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/28 13:13:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef struct s_st
 {
-	int		*stack;
-	uint	last_index;
-}			t_stack;
+	int	*stack;
+	int	last_index;
+}		t_stack;
 
 #endif

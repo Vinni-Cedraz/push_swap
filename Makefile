@@ -10,13 +10,14 @@ MAGENTA         =  \033[0;95m
 DEF_COLOR       =  \033[0;39m
 
 NAME = pushwap.a
-INC = includes
 LIBFT_PATH = libft/
+INC = -Iincludes/ -I$(LIBFT_PATH)
 EXECUTABLE = push_swap
-CFLAGS = -Wall -Wextra -Werror -g -I$(INC)
+CFLAGS = -Wall -Wextra -Werror -g $(INC)
 
 SRCS = \
 	  main \
+	  pa
 
 SRCS_PATH = src/
 OBJS_PATH = objs/
