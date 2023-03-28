@@ -1,1 +1,18 @@
-[]
+[
+ {
+  "directory": "/root/pushswap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes",
+   "-c",
+   "src/main.c",
+   "-o",
+   "objs/main.o"
+  ],
+  "file": "src/main.c"
+ }
+]
