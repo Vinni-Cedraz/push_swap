@@ -27,10 +27,95 @@
    "-Iincludes/",
    "-Ilibft/",
    "-c",
-   "src/pa.c",
+   "src/print_stack.c",
    "-o",
-   "objs/pa.o"
+   "objs/print_stack.o"
   ],
-  "file": "src/pa.c"
+  "file": "src/print_stack.c"
+ },
+ {
+  "directory": "/root/pushswap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-Ilibft/",
+   "-c",
+   "src/push.c",
+   "-o",
+   "objs/push.o"
+  ],
+  "file": "src/push.c"
+ },
+ {
+  "directory": "/root/pushswap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-Ilibft/",
+   "-c",
+   "src/rotate.c",
+   "-o",
+   "objs/rotate.o"
+  ],
+  "file": "src/rotate.c"
+ },
+ {
+  "directory": "/root/pushswap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-Ilibft/",
+   "-c",
+   "src/reverse_rotate.c",
+   "-o",
+   "objs/reverse_rotate.o"
+  ],
+  "file": "src/reverse_rotate.c"
+ },
+ {
+  "directory": "/root/pushswap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-Ilibft/",
+   "-c",
+   "src/swap.c",
+   "-o",
+   "objs/swap.o"
+  ],
+  "file": "src/swap.c"
+ },
+ {
+  "directory": "/root/pushswap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-Ilibft/",
+   "-c",
+   "src/tests.c",
+   "-o",
+   "objs/tests.o"
+  ],
+  "file": "src/tests.c"
  }
 ]
