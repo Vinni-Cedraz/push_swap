@@ -6,13 +6,23 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 20:13:23 by vcedraz-          #+#    #+#             */
-/*   Updated: 2022/10/01 19:09:27 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/27 20:14:02 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	handle_negative(int n, int fd);
+
 void	ft_putnbr_fd(int n, int fd)
+{
+	n = handle_negative(n, fd);
+	if (n > 9)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd((n % 10) + '0', fd);
+}
+
+static int	handle_negative(int n, int fd)
 {
 	if (n < 0)
 	{
@@ -25,7 +35,5 @@ void	ft_putnbr_fd(int n, int fd)
 		else
 			n = -n;
 	}
-	if (n >= 10)
-		ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd((n % 10) + '0', fd);
+	return (n);
 }
