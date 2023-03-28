@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:53:06 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/28 15:32:00 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/28 17:06:38 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,20 @@ void debug_header(t_stack *a, t_stack *b) {
 }
 
 void do_one_stack_operation(t_stack *a, t_stack *b, t_funct1 f,
-                            e_which_stack e) {
-    if (e == A) (f)(a, 0);
-    if (e == B) (f)(b, 0);
+                            t_tool *tool) {
+    if (tool->e == A) (f)(a, 0);
+    if (tool->e == B) (f)(b, 0);
+	tool->count++;
     ft_putstr("--------\n");
     print_stacks(a, b);
     ft_putstr("--------\n");
     return;
 }
 
-void do_two_stacks_operation(t_stack *a, t_stack *b, t_funct2 f) {
+void do_two_stacks_operation(t_stack *a, t_stack *b, t_funct2 f, t_tool *tool) {
     (f)(a, b);
     ft_putstr("--------\n");
     print_stacks(a, b);
     ft_putstr("--------\n");
+	tool->count++;
 }

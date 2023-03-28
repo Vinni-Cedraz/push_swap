@@ -6,11 +6,12 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/28 15:44:27 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/28 17:05:13 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap_includes.h"
+#include <stdio.h>
 
 static void	create_stacks(t_stack *a, t_stack *b, int len);
 static void	read_list(char **argv, t_stack *a);
@@ -20,18 +21,18 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	t_tool *tool;
 
+	tool = malloc(sizeof(t_tool));
+	tool->count = 0;
 	a = malloc(sizeof(t_stack));
 	b = malloc(sizeof(t_stack));
 	create_stacks(a, b, argc - 1);
 	read_list(argv + 1, a);
 	debug_header(a, b);
-	do_one_stack_operation(a, b, sa, A);
-	do_two_stacks_operation(a, b, pb);
-	do_two_stacks_operation(a, b, pb);
-	do_one_stack_operation(a, b, sb, B);
-	do_one_stack_operation(a, b, rra, A);
+	shitty_algorithm(a, b, tool);
 	destroy_stacks(a, b);
+	printf("%d\n", tool->count);
 }
 
 static void	create_stacks(t_stack *a, t_stack *b, int len)

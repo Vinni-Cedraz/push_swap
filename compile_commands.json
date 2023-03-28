@@ -117,5 +117,22 @@
    "objs/tests.o"
   ],
   "file": "src/tests.c"
+ },
+ {
+  "directory": "/root/pushswap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-Ilibft/",
+   "-c",
+   "src/algorithm.c",
+   "-o",
+   "objs/algorithm.o"
+  ],
+  "file": "src/algorithm.c"
  }
 ]

@@ -22,6 +22,7 @@ SRCS = \
 	  rotate \
 	  reverse_rotate \
 	  tests \
+	  algorithm \
 	  swap
 
 SRCS_PATH = src/
