@@ -6,14 +6,14 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/28 10:30:06 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/28 13:13:24 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap_includes.h"
 
 static void	read_list(char **argv, t_stack *a);
-static void	print_stack(t_stack *a, uint last_index);
+static void	print_stack(t_stack *a, int last_index);
 static void	create_stacks(t_stack *a, t_stack *b, int len);
 static void	destroy_stacks(t_stack *a, t_stack *b);
 
@@ -50,7 +50,7 @@ static void	read_list(char **argv, t_stack *a)
 	a->last_index = i - 1;
 }
 
-static void	print_stack(t_stack *stack, uint last_index)
+static void	print_stack(t_stack *stack, int last_index)
 {
 	if (last_index)
 		print_stack(stack, last_index - 1);

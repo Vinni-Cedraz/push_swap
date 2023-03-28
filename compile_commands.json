@@ -7,12 +7,30 @@
    "-Wextra",
    "-Werror",
    "-g",
-   "-Iincludes",
+   "-Iincludes/",
+   "-Ilibft/",
    "-c",
    "src/main.c",
    "-o",
    "objs/main.o"
   ],
   "file": "src/main.c"
+ },
+ {
+  "directory": "/root/pushswap",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Wextra",
+   "-Werror",
+   "-g",
+   "-Iincludes/",
+   "-Ilibft/",
+   "-c",
+   "src/pa.c",
+   "-o",
+   "objs/pa.o"
+  ],
+  "file": "src/pa.c"
  }
 ]

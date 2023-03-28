@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap_includes.h                                :+:      :+:    :+:   */
+/*   prototypes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 18:25:45 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/28 13:12:04 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/03/28 13:05:15 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSHSWAP_INCLUDES_H
-# define PUSHSWAP_INCLUDES_H
+#ifndef PROTOTYPES_H
+# define PROTOTYPES_H
 
-# include "../libft/libft.h"
-# include "sys_headers.h"
 # include "t_stack.h"
+
+void	pa(t_stack *a, t_stack *b);
 
 #endif
