@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/28 17:01:22 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/29 21:38:42 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ void rrb(t_stack *b, int is_rrr);
 void rrr(t_stack *a, t_stack *b, int is_rrr);
 
 // algorithm, no shit sherlock
-void shitty_algorithm(t_stack *a, t_stack *b, t_tool *);
+void algorithm(t_stack *a, t_stack *b, t_tool *);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:00:39 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/28 18:04:37 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/29 22:00:28 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,17 @@ void	bubbling_up(t_stack *a, t_stack *b, t_tool *tool)
 	lowest = lowest_number(a->stack, a->last_index);
 	half = a->last_index / 2;
 	index = 0;
+	tool->e = A;
 	while (a->stack[a->last_index] != lowest)
 	{
 		if (a->stack[index] == lowest)
 		{
-			if (index <= half)
+			if (index < half)
 				while (a->stack[a->last_index] != lowest)
-				{
-					tool->e = A;
-					do_one_stack_operation(a, b, ra, tool);
-				}
+					do_one_stack_operation(a, b, rra, tool);
 			else
 				while (a->stack[a->last_index] != lowest)
-				{
-					tool->e = B;
-					do_one_stack_operation(a, b, rra, tool);
-				}
+					do_one_stack_operation(a, b, ra, tool);
 		}
 		index++;
 	}
@@ -68,12 +63,12 @@ int	is_sorted(t_stack *a)
 	return (1);
 }
 
-void	shitty_algorithm(t_stack *a, t_stack *b, t_tool *tool)
+void	algorithm(t_stack *a, t_stack *b, t_tool *tool)
 {
 	if (!is_sorted(a))
 	{
 		bubbling_up(a, b, tool);
-		shitty_algorithm(a, b, tool);
+		algorithm(a, b, tool);
 	}
 	else
 		while (b->last_index >= 0)
