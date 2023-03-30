@@ -6,17 +6,17 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:11 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/27 18:21:37 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:48:25 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stdlib.h>
-#include <unistd.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-#define BUFFER_SIZE 10000
+# define BUFFER_SIZE 10000
 
 typedef struct s_plit
 {

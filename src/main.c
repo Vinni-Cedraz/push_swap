@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 21:39:33 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/29 21:39:34 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:46:49 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_tool *tool;
+	t_tool	*tool;
 
 	tool = malloc(sizeof(t_tool));
 	tool->count = 0;
@@ -31,6 +31,7 @@ int	main(int argc, char **argv)
 	read_list(argv + 1, a);
 	debug_header(a, b);
 	algorithm(a, b, tool);
+	print_stacks(a, b);
 	destroy_stacks(a, b);
 	printf("%d\n", tool->count);
 }
