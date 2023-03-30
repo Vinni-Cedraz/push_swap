@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:11:14 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/27 18:18:23 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/30 11:49:48 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,22 @@ static int	handle_negative(int nbr, char **end)
 	}
 	return (nbr);
 }
+
 static int	numlen(int n)
 {
 	int	len;
 
 	len = 0;
 	if (n < 0)
-		len++, n *= -1;
+	{
+		len++;
+		n *= -1;
+	}
 	while (n)
-		n /= 10, len++;
+	{
+		n /= 10;
+		len++;
+	}
 	return (len);
 }
 
