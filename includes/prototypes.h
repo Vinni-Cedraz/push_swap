@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 11:46:32 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:58:52 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,11 @@ typedef struct s_tool
 {
 	t_which_stack	e;
 	int				count;
+	int 			last_pa;
 }					t_tool;
 
 // debug
+int					is_sorted(t_stack *a);
 void				print_stack(t_stack *a, int last_index);
 void				print_stacks(t_stack *a, t_stack *b);
 void				debug_header(t_stack *a, t_stack *b);
@@ -58,6 +60,6 @@ void				rrb(t_stack *b, int is_rrr);
 void				rrr(t_stack *a, t_stack *b, int is_rrr);
 
 // algorithm, no shit sherlock
-void				algorithm(t_stack *a, t_stack *b, t_tool *tool);
+void				small_size_sort(t_stack *a, t_stack *b, t_tool *tool);
 
 #endif

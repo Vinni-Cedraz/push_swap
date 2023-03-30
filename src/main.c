@@ -1,12 +1,12 @@
 /* ************************************************************************** */
-/*                                                                            */
+	/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 21:39:33 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 11:46:49 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/03/30 18:00:09 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_tool	*tool;
+	t_tool *tool;
 
 	tool = malloc(sizeof(t_tool));
 	tool->count = 0;
@@ -30,10 +30,10 @@ int	main(int argc, char **argv)
 	create_stacks(a, b, argc - 1);
 	read_list(argv + 1, a);
 	debug_header(a, b);
-	algorithm(a, b, tool);
-	print_stacks(a, b);
+	small_size_sort(a, b, tool);
 	destroy_stacks(a, b);
-	printf("%d\n", tool->count);
+	printf("counter at last pa: %d\n", tool->last_pa);
+	printf("counter at end: %d\n", tool->count);
 }
 
 static void	create_stacks(t_stack *a, t_stack *b, int len)

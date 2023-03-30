@@ -1,16 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   small_size_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:00:39 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 11:47:54 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/30 17:58:41 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap_includes.h"
+
+static int	lowest_number(int arr[], int n);
+static void	bubbling_up(t_stack *a, t_stack *b, t_tool *tool);
+static void	sort_three(t_stack *a, t_stack *b, t_tool *tool);
+int			is_sorted(t_stack *a);
+
+void	small_size_sort(t_stack *a, t_stack *b, t_tool *tool)
+{
+	if (a->last_index == 2)
+		sort_three(a, b, tool);
+	else
+	{
+		while (!is_sorted(a))
+		{
+			bubbling_up(a, b, tool);
+			if (!is_sorted(a))
+				do_two_stacks_operation(a, b, pb, tool);
+			if (a->last_index == 2)
+				sort_three(a, b, tool);
+		}
+		while (b->last_index >= 0)
+			do_two_stacks_operation(a, b, pa, tool);
+	}
+}
 
 static int	lowest_number(int arr[], int n)
 {
@@ -50,7 +74,7 @@ static void	bubbling_up(t_stack *a, t_stack *b, t_tool *tool)
 	}
 }
 
-static int	is_sorted(t_stack *a)
+int	is_sorted(t_stack *a)
 {
 	int	i;
 
@@ -87,22 +111,5 @@ static void	sort_three(t_stack *a, t_stack *b, t_tool *tool)
 	{
 		do_one_stack_operation(a, b, sa, tool);
 		do_one_stack_operation(a, b, rra, tool);
-	}
-}
-
-void	algorithm(t_stack *a, t_stack *b, t_tool *tool)
-{
-	if (a->last_index == 2)
-		sort_three(a, b, tool);
-	else
-	{
-		while (!is_sorted(a))
-		{
-			bubbling_up(a, b, tool);
-			if (!is_sorted(a))
-				do_two_stacks_operation(a, b, pb, tool);
-		}
-		while (b->last_index >= 0)
-			do_two_stacks_operation(a, b, pa, tool);
 	}
 }
