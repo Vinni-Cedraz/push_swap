@@ -1,12 +1,12 @@
 /* ************************************************************************** */
-	/*                                                                            */
+/*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/28 17:05:13 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/03/29 21:39:33 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/03/29 21:39:34 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 	create_stacks(a, b, argc - 1);
 	read_list(argv + 1, a);
 	debug_header(a, b);
-	shitty_algorithm(a, b, tool);
+	algorithm(a, b, tool);
 	destroy_stacks(a, b);
 	printf("%d\n", tool->count);
 }
