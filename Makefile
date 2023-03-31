@@ -23,6 +23,10 @@ SRCS = \
 	  reverse_rotate \
 	  tests \
 	  small_size_sort \
+	  big_size_sort \
+	  sort_three \
+	  utils \
+	  cost_to_make_it_top \
 	  swap
 
 SRCS_PATH = src/
