@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 17:58:52 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/30 21:46:42 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,10 @@ typedef struct s_tool
 {
 	t_which_stack	e;
 	int				count;
-	int 			last_pa;
+	int				last_pa;
 }					t_tool;
 
 // debug
-int					is_sorted(t_stack *a);
 void				print_stack(t_stack *a, int last_index);
 void				print_stacks(t_stack *a, t_stack *b);
 void				debug_header(t_stack *a, t_stack *b);
@@ -59,7 +58,15 @@ void				rra(t_stack *a, int is_rrr);
 void				rrb(t_stack *b, int is_rrr);
 void				rrr(t_stack *a, t_stack *b, int is_rrr);
 
-// algorithm, no shit sherlock
+// sorting algos;
+void				big_size_sort(t_stack *a, t_stack *b, t_tool *tool);
 void				small_size_sort(t_stack *a, t_stack *b, t_tool *tool);
+void				sort_three(t_stack *a, t_stack *b, t_tool *tool);
+
+// utils
+int					lowest_number(int *arr, int n);
+int					biggest_number(int *arr, int n);
+int					is_sorted(t_stack *a);
+int					get_push_cost(t_stack *a, t_stack *b, int a_pos, int b_pos);
 
 #endif
