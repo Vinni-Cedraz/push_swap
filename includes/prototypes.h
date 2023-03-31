@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 21:46:42 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:20:08 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,11 @@ void				small_size_sort(t_stack *a, t_stack *b, t_tool *tool);
 void				sort_three(t_stack *a, t_stack *b, t_tool *tool);
 
 // utils
-int					lowest_number(int *arr, int n);
-int					biggest_number(int *arr, int n);
+int					lowest_number(t_stack *stack);
+int					biggest_number(t_stack *stack);
 int					is_sorted(t_stack *a);
-int					get_push_cost(t_stack *a, t_stack *b, int a_pos, int b_pos);
+int					get_push_cost_case1(t_stack *a, t_stack *b, int a_pos, int b_pos);
+int					get_push_cost_case2(t_stack *a, t_stack *b, int a_pos);
+int					get_index(t_stack *a, int index);
 
 #endif

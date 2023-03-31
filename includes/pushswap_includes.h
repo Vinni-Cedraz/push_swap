@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:25:45 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 11:44:56 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/31 07:55:29 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 # include "prototypes.h"
 # include "sys_headers.h"
 # include "t_stack.h"
+typedef t_stack	t_s;
 
 #endif
