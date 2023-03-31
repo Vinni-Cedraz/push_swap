@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/31 15:20:08 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:32:15 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ typedef struct s_tool
 	t_which_stack	e;
 	int				count;
 	int				last_pa;
+	int 			cheapest_to_top_a;
+	int 			cheapest_to_top_b;
 }					t_tool;
 
 // debug

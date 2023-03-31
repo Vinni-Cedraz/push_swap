@@ -26,7 +26,7 @@ SRCS = \
 	  big_size_sort \
 	  sort_three \
 	  utils \
-	  cost_to_make_it_top \
+	  get_push_cost \
 	  swap
 
 SRCS_PATH = src/
