@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:00:39 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 17:58:41 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/03/31 07:51:25 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ void	small_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 	}
 }
 
-static int	lowest_number(int arr[], int n)
+static int	lowest_number(int arr[], int last_index)
 {
-	int	smallest;
+	int	lowest;
 	int	i;
 
-	smallest = arr[0];
+	lowest = arr[0];
 	i = -1;
-	while (++i < n)
-		if (arr[i] < smallest)
-			smallest = arr[i];
-	return (smallest);
+	while (++i <= last_index)
+		if (arr[i] < lowest)
+			lowest = arr[i];
+	return (lowest);
 }
 
 static void	bubbling_up(t_stack *a, t_stack *b, t_tool *tool)
@@ -55,10 +55,10 @@ static void	bubbling_up(t_stack *a, t_stack *b, t_tool *tool)
 	int	half;
 	int	index;
 
-	lowest = lowest_number(a->stack, a->last_index);
 	half = a->last_index / 2;
 	index = 0;
 	tool->e = A;
+	lowest = lowest_number(a->stack, a->last_index);
 	while (a->stack[a->last_index] != lowest)
 	{
 		if (a->stack[index] == lowest)
