@@ -9,7 +9,7 @@ YELLOW          =  \033[0;93m
 MAGENTA         =  \033[0;95m
 DEF_COLOR       =  \033[0;39m
 
-NAME = pushwap.a
+NAME = push_swap.a
 LIBFT_PATH = libft/
 INC = -Iincludes/ -I$(LIBFT_PATH)
 EXECUTABLE = push_swap
@@ -65,7 +65,7 @@ $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
 LOOP: 
 	@for file in $(SRCS); do \
 		if [ $(SRCS_PATH)$$file.c -nt $(OBJS_PATH)$$file.o ]; then \
-			printf "$(GREEN)[$(NAME)]$(CYAN) Compiling $(WHITE)$$file.c$(DEF_COLOR)\n"; \
+			printf "$(GREEN)[push_swap]$(CYAN) Compiling $(WHITE)$$file.c$(DEF_COLOR)\n"; \
 			printf "$(CC) $(CFLAGS) -c $(SRCS_PATH)$$file.c -o $(OBJS_PATH)$$file.o\n"; \
 			$(CC) $(CFLAGS) -c $(SRCS_PATH)$$file.c -o $(OBJS_PATH)$$file.o; \
 			printf "$(WHITE)$$file.c$(GREEN) OK$(DEF_COLOR)\n\n"; \
