@@ -6,11 +6,12 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/01 23:11:46 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/02 14:24:40 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap_includes.h"
+#include <stdio.h>
 
 static int	get_neigh(t_stack *b, int value);
 static void	push_to_b(t_s *a, t_s *b, t_tool *tool);
@@ -29,8 +30,6 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 	placement_cost = 0;
 	last_cost = __INT_MAX__;
 	arr = a->stack;
-	do_two_stacks_operation(a, b, pb, tool);
-	do_two_stacks_operation(a, b, pb, tool);
 	while (++i <= a->last_index)
 	{
 		if (arr[i] < lowest_number(b) || arr[i] > biggest_number(b))
@@ -50,13 +49,15 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 		}
 		last_cost = placement_cost;
 	}
-	push_to_b(a, b, tool);
+	if (a->last_index > 2)
+		push_to_b(a, b, tool);
 }
 
 static void	push_to_b(t_stack *a, t_stack *b, t_tool *tool)
 {
 	move_cheapest_to_top_of_a(a, b, tool);
 	move_cheapest_to_top_of_b(a, b, tool);
+	printf("stack a size is: %d\n", a->last_index);
 	do_two_stacks_operation(a, b, pb, tool);
 }
 
@@ -69,6 +70,7 @@ static void	move_cheapest_to_top_of_a(t_stack *a, t_stack *b, t_tool *tool)
 	arr = a->stack;
 	last_index = a->last_index;
 	cheapest_to_top = tool->cheapest_to_top_a;
+	tool->e = A;
 	if (get_index(a, cheapest_to_top) > (a->last_index / 2) + 1)
 	{
 		while (arr[last_index] != cheapest_to_top)
@@ -89,6 +91,7 @@ static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool)
 	arr = b->stack;
 	last_index = b->last_index;
 	cheapest_to_top = tool->cheapest_to_top_b;
+	tool->e = B;
 	if (get_index(b, cheapest_to_top) > (b->last_index / 2) + 1)
 	{
 		while (arr[last_index] != cheapest_to_top)
@@ -108,7 +111,7 @@ static int	get_neigh(t_stack *b, int value)
 	int	diff;
 	int	smallest_diff;
 	int	*arr;
-	int neighbor;
+	int	neighbor;
 
 	i = -1;
 	diff = 0;
