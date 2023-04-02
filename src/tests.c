@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:53:06 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 21:49:24 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:26:02 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void do_one_stack_operation(t_stack *a, t_stack *b, t_funct1 f,
     if (tool->e == A) (f)(a, 0);
     if (tool->e == B) (f)(b, 0);
 	tool->count++;
-    ft_putstr("--------\n");
-    print_stacks(a, b);
-    ft_putstr("--------\n");
+    // ft_putstr("--------\n");
+    // print_stacks(a, b);
+    // ft_putstr("--------\n");
     return;
 }
 
@@ -35,8 +35,8 @@ void do_two_stacks_operation(t_stack *a, t_stack *b, t_funct2 f, t_tool *tool) {
     (f)(a, b);
 	if (is_sorted(a))
 		tool->last_pa = tool->count;
-    ft_putstr("--------\n");
-    print_stacks(a, b);
-    ft_putstr("--------\n");
+    // ft_putstr("--------\n");
+    // print_stacks(a, b);
+    // ft_putstr("--------\n");
 	tool->count++;
 }
