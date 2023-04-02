@@ -6,18 +6,18 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 20:19:50 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/31 15:21:31 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/01 23:10:09 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap_includes.h"
 
-int	get_index(t_stack *a, int index)
+int	get_index(t_stack *stack, int index)
 {
 	int	i;
 
 	i = 0;
-	while (a->stack[i] != index)
+	while (stack->stack[i] != index)
 		i++;
 	return (i);
 }
