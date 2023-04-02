@@ -53,7 +53,7 @@ $(NAME): $(OBJS) make_libft
 		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)                        \r"; \
 	fi; \
 	done
-	@printf "$(CYAN)Creating $(EXECUTABLE)$(DEF_COLOR)\n"; \
+	@printf "$(CYAN)Creating $(EXECUTABLE)$(DEF_COLOR)                                                       \n";\
 	$(CC) $(CFLAGS) $(NAME) $(LIBFT_PATH)libft.a $(MLXFLAGS) -o $(EXECUTABLE);
 	@printf "$(WHITE)Created Library $(RED)$(NAME)$(DEF_COLOR)                                             \n";
 	@printf "\njust execute $(GREEN)./$(EXECUTABLE) $(GRAY)to run the program\n$(DEF_COLOR)                  \n";
@@ -75,7 +75,18 @@ LOOP:
 
 clean:
 	@make -C $(LIBFT_PATH) clean --no-print-directory
-	@rm -f $(EXECUTABLE)
 	@rm -rf $(OBJS_PATH)
+
+clean_nolib:
+	@rm -rf $(OBJS_PATH)
+
+fclean_nolib: clean_nolib
+	@rm -f $(EXECUTABLE)
 	@rm -f $(NAME)
 
+fclean: fclean_nolib
+	@make -C $(LIBFT_PATH) fclean --no-print-directory
+
+re: fclean all
+
+re_nolib: fclean_nolib all
