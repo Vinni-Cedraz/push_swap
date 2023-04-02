@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/02 15:38:16 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/02 17:34:04 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	t_tool	*tool;
 
 	tool = malloc(sizeof(t_tool));
-	tool->count = 0;
+	ft_bzero((char *)tool, sizeof(t_tool));
 	a = malloc(sizeof(t_stack));
 	b = malloc(sizeof(t_stack));
 	create_stacks(a, b, argc - 1);
@@ -78,14 +78,14 @@ static void	destroy_stacks(t_stack *a, t_stack *b)
 static void	push_back_toa(t_stack *a, t_stack *b, t_tool *tool)
 {
 	int	lowest;
-	int count;
+	int	count;
 
 	count = 3;
-	tool->e = B;
+	tool->which = B;
 	lowest = lowest_number(b);
 	while (b->stack[0] != lowest)
 		do_one_stack_operation(a, b, rb, tool);
-	tool->e = A;
+	tool->which = A;
 	lowest = lowest_number(a);
 	while (a->stack[a->last_index] != lowest)
 		do_one_stack_operation(a, b, rra, tool);

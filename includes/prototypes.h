@@ -6,32 +6,17 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/31 16:32:15 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/02 17:00:22 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROTOTYPES_H
 # define PROTOTYPES_H
 
-# include "t_stack.h"
+# include "structs.h"
 
 typedef				void(t_funct1)(t_stack *stack, int is);
 typedef				void(t_funct2)(t_stack *a, t_stack *b);
-
-typedef enum e_enum
-{
-	A,
-	B,
-}					t_which_stack;
-
-typedef struct s_tool
-{
-	t_which_stack	e;
-	int				count;
-	int				last_pa;
-	int 			cheapest_to_top_a;
-	int 			cheapest_to_top_b;
-}					t_tool;
 
 // debug
 void				print_stack(t_stack *a, int last_index);
@@ -69,8 +54,8 @@ void				sort_three(t_stack *a, t_stack *b, t_tool *tool);
 int					lowest_number(t_stack *stack);
 int					biggest_number(t_stack *stack);
 int					is_sorted(t_stack *a);
-int					get_push_cost_case1(t_stack *a, t_stack *b, int a_pos, int b_pos);
-int					get_push_cost_case2(t_stack *a, t_stack *b, int a_pos);
+int					get_push_cost_case1(t_stack *a, t_stack *b, int a_pos, int b_pos, t_tool *tool);
+int					get_push_cost_case2(t_stack *a, t_stack *b, int a_pos, t_tool *tool);
 int					get_index(t_stack *a, int index);
 
 #endif

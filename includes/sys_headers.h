@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:56:25 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 11:45:02 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/02 16:47:27 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <sys/types.h>
 
 #endif
