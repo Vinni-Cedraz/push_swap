@@ -6,12 +6,11 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/02 14:24:40 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/02 15:32:14 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap_includes.h"
-#include <stdio.h>
 
 static int	get_neigh(t_stack *b, int value);
 static void	push_to_b(t_s *a, t_s *b, t_tool *tool);
@@ -57,7 +56,6 @@ static void	push_to_b(t_stack *a, t_stack *b, t_tool *tool)
 {
 	move_cheapest_to_top_of_a(a, b, tool);
 	move_cheapest_to_top_of_b(a, b, tool);
-	printf("stack a size is: %d\n", a->last_index);
 	do_two_stacks_operation(a, b, pb, tool);
 }
 
