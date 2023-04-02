@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:49:52 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 19:50:02 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/02 13:57:10 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	sort_three(t_stack *a, t_stack *b, t_tool *tool)
 
 	arr = a->stack;
 	tool->e = A;
-	if (is_sorted(a))
+	if (is_sorted(a) || a->last_index < 2)
 		return ;
 	if (arr[2] < arr[1] && arr[1] > arr[0] && arr[2] < arr[0])
 	{
