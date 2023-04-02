@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/02 15:32:14 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/02 17:32:23 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 	{
 		if (arr[i] < lowest_number(b) || arr[i] > biggest_number(b))
 		{
-			placement_cost = get_push_cost_case2(a, b, i);
+			placement_cost = get_push_cost_case2(a, b, i, tool);
 			tmp = biggest_number(b);
 		}
 		else
 		{
-			placement_cost = get_push_cost_case1(a, b, i, get_neigh(b, arr[i]));
+			placement_cost = get_push_cost_case1(a, b, i, get_neigh(b, arr[i]), tool);
 			tmp = get_neigh(b, arr[i]);
 		}
 		if (placement_cost < last_cost)
@@ -68,7 +68,7 @@ static void	move_cheapest_to_top_of_a(t_stack *a, t_stack *b, t_tool *tool)
 	arr = a->stack;
 	last_index = a->last_index;
 	cheapest_to_top = tool->cheapest_to_top_a;
-	tool->e = A;
+	tool->which = A;
 	if (get_index(a, cheapest_to_top) > (a->last_index / 2) + 1)
 	{
 		while (arr[last_index] != cheapest_to_top)
