@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/02 19:17:26 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/03 09:03:12 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,13 @@ static void	move_cheapest_to_top_of_a(t_stack *a, t_stack *b, t_tool *tool)
 	last_index = a->last_index;
 	cheapest_to_top = tool->cheapest_to_top_a;
 	tool->which = A;
-	if (get_index(a, cheapest_to_top) > (a->last_index / 2) + 1)
+	if (get_index(a, cheapest_to_top) >= (a->last_index / 2))
 	{
 		while (arr[last_index] != cheapest_to_top)
 			do_one_stack_operation(a, b, ra, tool);
 		return ;
 	}
-	else
+	else if (get_index(a, cheapest_to_top) < (a->last_index / 2))
 		while (arr[last_index] != cheapest_to_top)
 			do_one_stack_operation(a, b, rra, tool);
 }
@@ -90,13 +90,13 @@ static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool)
 	last_index = b->last_index;
 	cheapest_to_top = tool->cheapest_to_top_b;
 	tool->which = B;
-	if (get_index(b, cheapest_to_top) > (b->last_index / 2) + 1)
+	if (get_index(b, cheapest_to_top) >= (b->last_index / 2))
 	{
 		while (arr[last_index] != cheapest_to_top)
 			do_one_stack_operation(a, b, rb, tool);
 		return ;
 	}
-	else
+	else if (get_index(b, cheapest_to_top) < (b->last_index / 2))
 		while (arr[last_index] != cheapest_to_top)
 			do_one_stack_operation(a, b, rrb, tool);
 }
