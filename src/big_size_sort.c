@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/02 17:32:23 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/02 19:17:26 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool)
 	arr = b->stack;
 	last_index = b->last_index;
 	cheapest_to_top = tool->cheapest_to_top_b;
-	tool->e = B;
+	tool->which = B;
 	if (get_index(b, cheapest_to_top) > (b->last_index / 2) + 1)
 	{
 		while (arr[last_index] != cheapest_to_top)

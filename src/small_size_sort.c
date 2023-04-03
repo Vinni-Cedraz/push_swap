@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:00:39 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/31 16:42:38 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/02 19:16:14 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	bubbling_up(t_stack *a, t_stack *b, t_tool *tool)
 	lowest = lowest_number(a);
 	half = a->last_index / 2;
 	index = 0;
-	tool->e = A;
+	tool->which = A;
 	while (a->stack[a->last_index] != lowest)
 	{
 		if (a->stack[index] == lowest)

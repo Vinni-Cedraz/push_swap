@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/02 17:00:22 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/03 00:20:15 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ typedef				void(t_funct2)(t_stack *a, t_stack *b);
 // debug
 void				print_stack(t_stack *a, int last_index);
 void				print_stacks(t_stack *a, t_stack *b);
-void				debug_header(t_stack *a, t_stack *b);
+void				debug_header(t_stack *a);
+void				debug_footer(t_stack *a, t_tool *tool);
 void				do_one_stack_operation(t_stack *a, t_stack *b, t_funct1 f,
 						t_tool *tool);
 void				do_two_stacks_operation(t_stack *a, t_stack *b, t_funct2 f,
