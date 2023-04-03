@@ -9,7 +9,7 @@ YELLOW          =  \033[0;93m
 MAGENTA         =  \033[0;95m
 DEF_COLOR       =  \033[0;39m
 
-NAME = pushwap.a
+NAME = push_swap.a
 LIBFT_PATH = libft/
 INC = -Iincludes/ -I$(LIBFT_PATH)
 EXECUTABLE = push_swap
@@ -23,6 +23,10 @@ SRCS = \
 	  reverse_rotate \
 	  tests \
 	  small_size_sort \
+	  big_size_sort \
+	  sort_three \
+	  utils \
+	  get_push_cost \
 	  swap
 
 SRCS_PATH = src/
@@ -49,7 +53,7 @@ $(NAME): $(OBJS) make_libft
 		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)                        \r"; \
 	fi; \
 	done
-	@printf "$(CYAN)Creating $(EXECUTABLE)$(DEF_COLOR)\n"; \
+	@printf "$(CYAN)Creating $(EXECUTABLE)$(DEF_COLOR)                                                       \n";\
 	$(CC) $(CFLAGS) $(NAME) $(LIBFT_PATH)libft.a $(MLXFLAGS) -o $(EXECUTABLE);
 	@printf "$(WHITE)Created Library $(RED)$(NAME)$(DEF_COLOR)                                             \n";
 	@printf "\njust execute $(GREEN)./$(EXECUTABLE) $(GRAY)to run the program\n$(DEF_COLOR)                  \n";
@@ -61,7 +65,7 @@ $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
 LOOP: 
 	@for file in $(SRCS); do \
 		if [ $(SRCS_PATH)$$file.c -nt $(OBJS_PATH)$$file.o ]; then \
-			printf "$(GREEN)[$(NAME)]$(CYAN) Compiling $(WHITE)$$file.c$(DEF_COLOR)\n"; \
+			printf "$(GREEN)[push_swap]$(CYAN) Compiling $(WHITE)$$file.c$(DEF_COLOR)\n"; \
 			printf "$(CC) $(CFLAGS) -c $(SRCS_PATH)$$file.c -o $(OBJS_PATH)$$file.o\n"; \
 			$(CC) $(CFLAGS) -c $(SRCS_PATH)$$file.c -o $(OBJS_PATH)$$file.o; \
 			printf "$(WHITE)$$file.c$(GREEN) OK$(DEF_COLOR)\n\n"; \
@@ -71,7 +75,18 @@ LOOP:
 
 clean:
 	@make -C $(LIBFT_PATH) clean --no-print-directory
-	@rm -f $(EXECUTABLE)
 	@rm -rf $(OBJS_PATH)
+
+clean_nolib:
+	@rm -rf $(OBJS_PATH)
+
+fclean_nolib: clean_nolib
+	@rm -f $(EXECUTABLE)
 	@rm -f $(NAME)
 
+fclean: fclean_nolib
+	@make -C $(LIBFT_PATH) fclean --no-print-directory
+
+re: fclean all
+
+re_nolib: fclean_nolib all

@@ -6,36 +6,23 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/31 07:53:25 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/03 17:48:46 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROTOTYPES_H
 # define PROTOTYPES_H
 
-# include "t_stack.h"
+# include "structs.h"
 
 typedef				void(t_funct1)(t_stack *stack, int is);
 typedef				void(t_funct2)(t_stack *a, t_stack *b);
 
-typedef enum e_enum
-{
-	A,
-	B,
-}					t_which_stack;
-
-typedef struct s_tool
-{
-	t_which_stack	e;
-	int				count;
-	int				last_pa;
-}					t_tool;
-
 // debug
-int					is_sorted(t_stack *a);
 void				print_stack(t_stack *a, int last_index);
 void				print_stacks(t_stack *a, t_stack *b);
-void				debug_header(t_stack *a, t_stack *b);
+void				debug_header(t_stack *a);
+void				debug_footer(t_stack *a, t_tool *tool);
 void				do_one_stack_operation(t_stack *a, t_stack *b, t_funct1 f,
 						t_tool *tool);
 void				do_two_stacks_operation(t_stack *a, t_stack *b, t_funct2 f,
@@ -59,7 +46,17 @@ void				rra(t_stack *a, int is_rrr);
 void				rrb(t_stack *b, int is_rrr);
 void				rrr(t_stack *a, t_stack *b, int is_rrr);
 
-// algorithm, no shit sherlock
+// sorting algos;
+void				big_size_sort(t_stack *a, t_stack *b, t_tool *tool);
 void				small_size_sort(t_stack *a, t_stack *b, t_tool *tool);
+void				sort_three(t_stack *a, t_stack *b, t_tool *tool);
+
+// utils
+int					lowest_number(t_stack *stack);
+int					biggest_number(t_stack *stack);
+int					is_sorted(t_stack *a);
+int					get_push_cost_case1(t_stack *a, t_stack *b, int a_pos, int b_pos, t_tool *tool);
+int					get_push_cost_case2(t_stack *a, t_stack *b, int a_pos, t_tool *tool);
+int					get_index(t_stack *a, int index);
 
 #endif
