@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/03 00:23:40 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/03 08:47:52 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	main(int argc, char **argv)
 	create_stacks(a, b, argc - 1);
 	read_list(argv + 1, a);
 	debug_header(a);
-	do_two_stacks_operation(a, b, pb, tool);
-	do_two_stacks_operation(a, b, pb, tool);
 	if (argc <= 6)
 		small_size_sort(a, b, tool);
 	else
 	{
+		do_two_stacks_operation(a, b, pb, tool);
+		do_two_stacks_operation(a, b, pb, tool);
 		while (a->last_index > 2)
 			big_size_sort(a, b, tool);
 		sort_three(a, b, tool);
