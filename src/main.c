@@ -6,12 +6,11 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/02 17:34:04 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/03 00:23:40 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap_includes.h"
-#include <stdio.h>
 
 static void	create_stacks(t_stack *a, t_stack *b, int len);
 static void	read_list(char **argv, t_stack *a);
@@ -30,7 +29,7 @@ int	main(int argc, char **argv)
 	b = malloc(sizeof(t_stack));
 	create_stacks(a, b, argc - 1);
 	read_list(argv + 1, a);
-	debug_header(a, b);
+	debug_header(a);
 	do_two_stacks_operation(a, b, pb, tool);
 	do_two_stacks_operation(a, b, pb, tool);
 	if (argc <= 6)
@@ -42,9 +41,8 @@ int	main(int argc, char **argv)
 		sort_three(a, b, tool);
 		push_back_toa(a, b, tool);
 	}
-	print_stack(a, 0);
+	debug_footer(a, tool);
 	destroy_stacks(a, b);
-	printf("counter at end: %d\n", tool->count);
 }
 
 static void	create_stacks(t_stack *a, t_stack *b, int len)
