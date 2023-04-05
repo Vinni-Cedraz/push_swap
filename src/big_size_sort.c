@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 13:17:36 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 14:24:36 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 		else
 		{
 			placement_cost = get_push_cost_case1(
-					a, b, i,
-					get_neigh(b, arr[i]),
-					tool);
+				a, b, i, get_neigh(b, arr[i]), tool);
 			tmp = get_neigh(b, arr[i]);
 		}
+		if (is_lowest_three(tool->lowest_three, arr[i]))
+			continue ;
 		if (placement_cost < last_cost)
 		{
 			tool->cheapest_to_top_a = arr[i];
