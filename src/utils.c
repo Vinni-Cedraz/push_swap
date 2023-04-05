@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 20:19:50 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/01 23:10:09 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 12:59:44 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,15 @@ int	get_index(t_stack *stack, int index)
 	return (i);
 }
 
-int	lowest_number(t_stack *stack)
+int	get_smallest(t_stack *stack)
 {
 	int	smallest;
-	int *arr = stack->stack;
-	int last_index = stack->last_index;
+	int	*arr;
+	int	last_index;
 	int	i;
 
+	arr = stack->stack;
+	last_index = stack->last_index;
 	smallest = arr[0];
 	i = -1;
 	while (++i <= last_index)
@@ -37,13 +39,15 @@ int	lowest_number(t_stack *stack)
 	return (smallest);
 }
 
-int biggest_number(t_stack *stack)
+int	get_biggest(t_stack *stack)
 {
-	int biggest;
-	int i;
-	int *arr = stack->stack;
-	int last_index = stack->last_index;
+	int	biggest;
+	int	i;
+	int	*arr;
+	int	last_index;
 
+	arr = stack->stack;
+	last_index = stack->last_index;
 	biggest = arr[0];
 	i = -1;
 	while (++i <= last_index)
@@ -64,4 +68,24 @@ int	is_sorted(t_stack *a)
 		i++;
 	}
 	return (1);
+}
+
+// get the smallest number starting to count from n
+int	get_smallest_from_n(t_stack *stack, int n)
+{
+	int	smallest;
+	int	*arr;
+	int	last_index;
+	int	i;
+
+	arr = stack->stack;
+	last_index = stack->last_index;
+	smallest = __INT_MAX__;
+	i = -1;
+	while (++i <= last_index)
+		if (arr[i] > n && arr[i] < smallest)
+			smallest = arr[i];
+	if (smallest == __INT_MAX__)
+		return (n);
+	return (smallest);
 }

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:28:08 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/03 08:58:23 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 00:37:01 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	get_push_cost_case2(t_stack *a, t_stack *b, int pos_a, t_tool *tool)
 	int	cost;
 
 	cost = cost_to_make_it_top(a, pos_a, tool);
-	cost += cost_to_make_it_top(b, get_index(b, biggest_number(b)), tool);
+	cost += cost_to_make_it_top(b, get_index(b, get_biggest(b)), tool);
 	return (cost + 1);
 }
 

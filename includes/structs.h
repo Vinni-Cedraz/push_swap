@@ -6,12 +6,12 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:50:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/02 17:22:37 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:07:18 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_STACK_H
-# define T_STACK_H
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
 # include "sys_headers.h"
 
@@ -46,6 +46,7 @@ typedef struct s_tool
 	int					hw_mny_rb;
 	int					hw_mny_rra;
 	int					hw_mny_rrb;
+	int					*lowest_three;
 }						t_tool;
 
 #endif

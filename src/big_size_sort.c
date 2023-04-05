@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/03 09:03:12 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:17:36 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,17 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 	arr = a->stack;
 	while (++i <= a->last_index)
 	{
-		if (arr[i] < lowest_number(b) || arr[i] > biggest_number(b))
+		if (arr[i] < get_smallest(b) || arr[i] > get_biggest(b))
 		{
 			placement_cost = get_push_cost_case2(a, b, i, tool);
-			tmp = biggest_number(b);
+			tmp = get_biggest(b);
 		}
 		else
 		{
-			placement_cost = get_push_cost_case1(a, b, i, get_neigh(b, arr[i]), tool);
+			placement_cost = get_push_cost_case1(
+					a, b, i,
+					get_neigh(b, arr[i]),
+					tool);
 			tmp = get_neigh(b, arr[i]);
 		}
 		if (placement_cost < last_cost)
