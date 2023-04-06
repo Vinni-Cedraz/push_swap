@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:50:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 13:07:18 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 22:40:41 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,8 @@ typedef struct s_tool
 	int					last_pa;
 	int					cheapest_to_top_a;
 	int					cheapest_to_top_b;
-	int					hw_mny_ra;
-	int					hw_mny_rb;
-	int					hw_mny_rra;
-	int					hw_mny_rrb;
+	int					do_rr;
+	int					do_rrr;
 	int					*lowest_three;
 }						t_tool;
 

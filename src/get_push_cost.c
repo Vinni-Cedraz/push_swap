@@ -6,37 +6,14 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:28:08 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 00:37:01 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 23:04:41 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap_includes.h"
 #include "structs.h"
 
-static int	cost_to_make_it_top(t_stack *stack, int index, t_tool *tool);
-
-// when pos_a would be the lowest in stack b
-int	get_push_cost_case1(t_stack *a, t_stack *b, int pos_a, int pos_b,
-		t_tool *tool)
-{
-	int	cost;
-
-	cost = cost_to_make_it_top(a, pos_a, tool);
-	cost += cost_to_make_it_top(b, pos_b, tool);
-	return (cost + 1);
-}
-
-// when pos_a would be the lowest in stack b
-int	get_push_cost_case2(t_stack *a, t_stack *b, int pos_a, t_tool *tool)
-{
-	int	cost;
-
-	cost = cost_to_make_it_top(a, pos_a, tool);
-	cost += cost_to_make_it_top(b, get_index(b, get_biggest(b)), tool);
-	return (cost + 1);
-}
-
-static int	cost_to_make_it_top(t_stack *stack, int index, t_tool *tool)
+int	cost_to_make_it_top(t_stack *stack, int index, t_tool *tool)
 {
 	int	cost;
 
@@ -56,4 +33,45 @@ static int	cost_to_make_it_top(t_stack *stack, int index, t_tool *tool)
 		tool->which_operation = REVERSE_ROTATE;
 	}
 	return (cost);
+}
+
+int	get_push_cost(
+	t_stack *a,
+	t_stack *b,
+	int pos_a,
+	int pos_b,
+	t_tool *tool)
+{
+	int					cost_a;
+	int					cost_b;
+	t_which_operation	which_operation_on_a;
+	t_which_operation	which_operation_on_b;
+
+	cost_a = cost_to_make_it_top(a, pos_a, tool);
+	which_operation_on_a = tool->which_operation;
+	cost_b = cost_to_make_it_top(b, pos_b, tool);
+	which_operation_on_b = tool->which_operation;
+	if (which_operation_on_a == which_operation_on_b)
+	{
+		if (ROTATE == which_operation_on_a)
+		{
+			if (cost_a > cost_b)
+				tool->do_rr = cost_b;
+			else
+				tool->do_rr = cost_a;
+		}
+		else
+		{
+			if (cost_a > cost_b)
+				tool->do_rrr = cost_b;
+			else
+				tool->do_rrr = cost_a;
+		}
+	}
+	else
+	{
+		tool->do_rr = 0;
+		tool->do_rrr = 0;
+	}
+	return (cost_a + cost_b);
 }

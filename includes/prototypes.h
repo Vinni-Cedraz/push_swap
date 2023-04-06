@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 13:14:27 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 23:00:28 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "structs.h"
 
 typedef	void(t_funct1)(t_stack *stack, int is);
-typedef	void(t_funct2)(t_stack *a, t_stack *b);
+typedef	void(t_funct2)(t_stack *a, t_stack *b, int is_rot_or_rev);
 
 // debug
 void	do_one_stack_operation(
@@ -29,7 +29,8 @@ void	do_two_stacks_operation(
 			t_stack *a,
 			t_stack *b,
 			t_funct2 f,
-			t_tool *tool
+			t_tool *tool,
+			int is_rot_or_rev
 			);
 void	print_stack(t_stack *a, int last_index);
 void	print_stacks(t_stack *a, t_stack *b);
@@ -41,8 +42,8 @@ void	sa(t_stack *a, int is_ss);
 void	sb(t_stack *b, int is_ss);
 void	ss(t_stack *a, t_stack *b);
 // push
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack *b, int is);
+void	pb(t_stack *a, t_stack *b, int is);
 
 // rotate
 void	ra(t_stack *a, int is_rr);
@@ -69,17 +70,11 @@ int		get_smallest(t_stack *stack);
 int		get_biggest(t_stack *stack);
 int		is_sorted(t_stack *a);
 // multiline function prototypes
-int		get_push_cost_case1(
+int		get_push_cost(
 			t_stack *a,
 			t_stack *b,
 			int a_pos,
 			int b_pos,
-			t_tool *tool
-			);
-int		get_push_cost_case2(
-			t_stack *a,
-			t_stack *b,
-			int a_pos,
 			t_tool *tool
 			);
 #endif

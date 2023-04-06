@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 13:03:43 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 23:54:14 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,18 @@ static void	push_back_toa(t_stack *a, t_stack *b, t_tool *tool)
 	count = 3;
 	tool->which = B;
 	lowest = get_smallest(b);
-	while (b->stack[0] != lowest)
-		do_one_stack_operation(a, b, rb, tool);
+	if (get_index(b, lowest) > b->last_index/2)
+		while (b->stack[0] != lowest)
+			do_one_stack_operation(a, b, rb, tool);
+	else if (get_index(b, lowest) <= b->last_index/2)
+		while (b->stack[0] != lowest)
+			do_one_stack_operation(a, b, rrb, tool);
 	tool->which = A;
 	lowest = get_smallest(a);
 	while (a->stack[a->last_index] != lowest)
 		do_one_stack_operation(a, b, rra, tool);
 	while (b->last_index != -1)
-		do_two_stacks_operation(a, b, pa, tool);
+		do_two_stacks_operation(a, b, pa, tool, 0);
 	while (count--)
 		do_one_stack_operation(a, b, rra, tool);
 }

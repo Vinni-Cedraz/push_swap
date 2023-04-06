@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:53:06 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 16:08:05 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 23:47:59 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void	do_one_stack_operation(t_stack *a, t_stack *b, t_funct1 f, t_tool *tool)
 }
 
 void	do_two_stacks_operation(t_stack *a, t_stack *b, t_funct2 f,
-		t_tool *tool)
+		t_tool *tool, int is_rot_or_rev)
 {
-	(f)(a, b);
+	(f)(a, b, is_rot_or_rev);
 	if (is_sorted(a))
 		tool->last_pa = tool->count;
 	ft_putstr("----------------\n");

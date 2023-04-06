@@ -6,13 +6,13 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 14:24:36 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/05 23:03:48 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap_includes.h"
 
-static int	get_neigh(t_stack *b, int value);
+static int	get_neighbor(t_stack *b, int value);
 static void	push_to_b(t_s *a, t_s *b, t_tool *tool);
 static void	move_cheapest_to_top_of_a(t_stack *a, t_stack *b, t_tool *tool);
 static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool);
@@ -33,14 +33,15 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 	{
 		if (arr[i] < get_smallest(b) || arr[i] > get_biggest(b))
 		{
-			placement_cost = get_push_cost_case2(a, b, i, tool);
+			placement_cost = get_push_cost(a, b, i, get_index(b,
+						get_biggest(b)), tool);
 			tmp = get_biggest(b);
 		}
 		else
 		{
-			placement_cost = get_push_cost_case1(
-				a, b, i, get_neigh(b, arr[i]), tool);
-			tmp = get_neigh(b, arr[i]);
+			placement_cost = get_push_cost(a, b, i, get_neighbor(b, arr[i]),
+					tool);
+			tmp = get_neighbor(b, arr[i]);
 		}
 		if (is_lowest_three(tool->lowest_three, arr[i]))
 			continue ;
@@ -57,9 +58,15 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 
 static void	push_to_b(t_stack *a, t_stack *b, t_tool *tool)
 {
+	if (tool->do_rr)
+		while (tool->do_rr--)
+			do_two_stacks_operation(a, b, rr, tool, 1);
+	else if (tool->do_rrr)
+		while (tool->do_rrr--)
+			do_two_stacks_operation(a, b, rrr, tool, 1);
 	move_cheapest_to_top_of_a(a, b, tool);
 	move_cheapest_to_top_of_b(a, b, tool);
-	do_two_stacks_operation(a, b, pb, tool);
+	do_two_stacks_operation(a, b, pb, tool, 0);
 }
 
 static void	move_cheapest_to_top_of_a(t_stack *a, t_stack *b, t_tool *tool)
@@ -106,7 +113,7 @@ static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool)
 
 // among all numbers on stack b that are smaller than "value",
 // get the one that is closest to value (smallest positive diff):
-static int	get_neigh(t_stack *b, int value)
+static int	get_neighbor(t_stack *b, int value)
 {
 	int	i;
 	int	diff;
