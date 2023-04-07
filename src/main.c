@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/06 22:07:39 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:46:16 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 		do_first_pushes(a, b, tool);
 		while (a->last_index > 2)
 			big_size_sort(a, b, tool);
+		// exit(EXIT_SUCCESS);
 		sort_three(a, b, tool);
 		push_back_toa(a, b, tool);
 	}

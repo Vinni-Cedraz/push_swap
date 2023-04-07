@@ -28,7 +28,7 @@ SRCS = \
 	  utils \
 	  get_push_cost \
 	  is_lowest_three \
-	  get_current_cost \
+	  get_current_total_cost \
 	  swap
 
 SRCS_PATH = src/

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/06 21:38:55 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/07 17:20:38 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ typedef	void(t_funct1)(t_stack *stack, int is);
 typedef	void(t_funct2)(t_stack *a, t_stack *b, int is_rot_or_rev);
 
 void	get_current_total_cost(t_tool *tool);
-void	if_current_is_cheapest_to_top(
+int		current_is_cheaper(int current_total_cost, int last_cost);
+void	set_do_rr_do_rrr(
 	t_tool *tool,
 	int *last_cost,
 	int curr_a,

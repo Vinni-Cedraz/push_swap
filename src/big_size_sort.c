@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/06 22:00:18 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/07 17:20:45 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 			tmp = get_neighbor(b, arr[i]);
 		}
 		get_current_total_cost(tool);
-		if_current_is_cheapest_to_top(tool, &last_cost, arr[i], tmp);
+		if (current_is_cheaper(tool->current_total_cost, last_cost))
+			set_do_rr_do_rrr(tool, &last_cost, arr[i], tmp);
 	}
 	if (a->last_index > 2)
 		push_to_b(a, b, tool);
@@ -94,7 +95,7 @@ static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool)
 	int	last_index;
 	int normalized_last_index;
 
-	normalized_last_index = a->last_index + (a->last_index & 1);
+	normalized_last_index = b->last_index + (b->last_index & 1);
 	arr = b->stack;
 	last_index = b->last_index;
 	tool->which = B;

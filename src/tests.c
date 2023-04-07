@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:53:06 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/07 14:33:44 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/07 16:46:07 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	debug_footer(t_stack *a)
 	ft_putstr(" -final stack- \n");
 	ft_putstr("---------------\n");
 	print_stack(a, 0);
-	ft_putstr("---------------\n");
-	ft_putstr_fd("total number of operations: ", 1);
-	ft_putchar('\n');
+	// ft_putstr("---------------\n");
+	// ft_putstr_fd("total number of operations: ", 1);
+	// ft_putchar('\n');
 }
 
 void	do_one_stack_operation(t_stack *a, t_stack *b, t_funct1 f, t_tool *tool)
@@ -38,9 +38,9 @@ void	do_one_stack_operation(t_stack *a, t_stack *b, t_funct1 f, t_tool *tool)
 		(f)(a, 0);
 	if (tool->which == B)
 		(f)(b, 0);
-	ft_putstr("---------------\n");
-	print_stacks(a, b);
-	ft_putstr("---------------\n");
+	// ft_putstr("---------------\n");
+	// print_stacks(a, b);
+	// ft_putstr("---------------\n");
 	return ;
 }
 
@@ -48,9 +48,9 @@ void	do_two_stacks_operation(t_stack *a, t_stack *b, t_funct2 f,
 		int is_rot_or_rev)
 {
 	(f)(a, b, is_rot_or_rev);
-	ft_putstr("----------------\n");
-	print_stacks(a, b);
-	ft_putstr("----------------\n");
+	// ft_putstr("----------------\n");
+	// print_stacks(a, b);
+	// ft_putstr("----------------\n");
 }
 
 void	do_first_pushes(t_stack *a, t_stack *b, t_tool *tool)
