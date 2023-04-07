@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 19:13:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/06 21:39:34 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:41:46 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ void	if_current_is_cheapest_to_top(t_tool *tool,
 				else
 					tool->do_rrr = tool->cost_to_top_a;
 			}
+		}
+		else
+		{
+			tool->do_rr = 0;
+			tool->do_rrr = 0;
 		}
 		(*last_cost) = tool->current_total_cost;
 	}
