@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 23:00:28 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/06 21:38:55 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,28 @@
 typedef	void(t_funct1)(t_stack *stack, int is);
 typedef	void(t_funct2)(t_stack *a, t_stack *b, int is_rot_or_rev);
 
+void	get_current_total_cost(t_tool *tool);
+void	if_current_is_cheapest_to_top(
+	t_tool *tool,
+	int *last_cost,
+	int curr_a,
+	int curr_b);
+
 // debug
 void	do_one_stack_operation(
-			t_stack *a,
-			t_stack *b,
-			t_funct1 f,
-			t_tool *tool
-			);
+	t_stack *a,
+	t_stack *b,
+	t_funct1 f,
+	t_tool *tool);
 void	do_two_stacks_operation(
-			t_stack *a,
-			t_stack *b,
-			t_funct2 f,
-			t_tool *tool,
-			int is_rot_or_rev
-			);
+	t_stack *a,
+	t_stack *b,
+	t_funct2 f,
+	int is_rot_or_rev);
 void	print_stack(t_stack *a, int last_index);
 void	print_stacks(t_stack *a, t_stack *b);
 void	debug_header(t_stack *a);
-void	debug_footer(t_stack *a, t_tool *tool);
+void	debug_footer(t_stack *a);
 
 // swap
 void	sa(t_stack *a, int is_ss);
@@ -70,11 +74,10 @@ int		get_smallest(t_stack *stack);
 int		get_biggest(t_stack *stack);
 int		is_sorted(t_stack *a);
 // multiline function prototypes
-int		get_push_cost(
-			t_stack *a,
-			t_stack *b,
-			int a_pos,
-			int b_pos,
-			t_tool *tool
-			);
+void	get_push_cost(
+	t_stack *a,
+	t_stack *b,
+	int a_pos,
+	int b_pos,
+	t_tool *tool);
 #endif

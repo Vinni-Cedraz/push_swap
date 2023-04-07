@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 23:03:48 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/06 22:00:18 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,36 +21,28 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 {
 	int	i;
 	int	*arr;
-	int	placement_cost;
 	int	last_cost;
 	int	tmp;
 
 	i = -1;
-	placement_cost = 0;
 	last_cost = __INT_MAX__;
 	arr = a->stack;
 	while (++i <= a->last_index)
 	{
+		if (is_lowest_three(tool->lowest_three, arr[i]))
+			continue ;
 		if (arr[i] < get_smallest(b) || arr[i] > get_biggest(b))
 		{
-			placement_cost = get_push_cost(a, b, i, get_index(b,
-						get_biggest(b)), tool);
+			get_push_cost(a, b, i, get_index(b, get_biggest(b)), tool);
 			tmp = get_biggest(b);
 		}
 		else
 		{
-			placement_cost = get_push_cost(a, b, i, get_neighbor(b, arr[i]),
-					tool);
+			get_push_cost(a, b, i, get_index(b, get_neighbor(b, arr[i])), tool);
 			tmp = get_neighbor(b, arr[i]);
 		}
-		if (is_lowest_three(tool->lowest_three, arr[i]))
-			continue ;
-		if (placement_cost < last_cost)
-		{
-			tool->cheapest_to_top_a = arr[i];
-			tool->cheapest_to_top_b = tmp;
-		}
-		last_cost = placement_cost;
+		get_current_total_cost(tool);
+		if_current_is_cheapest_to_top(tool, &last_cost, arr[i], tmp);
 	}
 	if (a->last_index > 2)
 		push_to_b(a, b, tool);
@@ -58,35 +50,41 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 
 static void	push_to_b(t_stack *a, t_stack *b, t_tool *tool)
 {
+	if (tool->do_rr < 0)
+		tool->do_rr = 0;
+	if (tool->do_rrr < 0)
+		tool->do_rrr = 0;
 	if (tool->do_rr)
 		while (tool->do_rr--)
-			do_two_stacks_operation(a, b, rr, tool, 1);
+			do_two_stacks_operation(a, b, rr, 1);
 	else if (tool->do_rrr)
 		while (tool->do_rrr--)
-			do_two_stacks_operation(a, b, rrr, tool, 1);
+			do_two_stacks_operation(a, b, rrr, 1);
 	move_cheapest_to_top_of_a(a, b, tool);
 	move_cheapest_to_top_of_b(a, b, tool);
-	do_two_stacks_operation(a, b, pb, tool, 0);
+	do_two_stacks_operation(a, b, pb, 0);
 }
 
 static void	move_cheapest_to_top_of_a(t_stack *a, t_stack *b, t_tool *tool)
 {
 	int	*arr;
 	int	last_index;
-	int	cheapest_to_top;
+	int normalized_last_index;
 
+	normalized_last_index = a->last_index + (a->last_index & 1);
 	arr = a->stack;
 	last_index = a->last_index;
-	cheapest_to_top = tool->cheapest_to_top_a;
 	tool->which = A;
-	if (get_index(a, cheapest_to_top) >= (a->last_index / 2))
+	if (tool->cheapest_to_top_a == a->stack[a->last_index])
+		return ;
+	if (get_index(a, tool->cheapest_to_top_a) >= normalized_last_index / 2)
 	{
-		while (arr[last_index] != cheapest_to_top)
+		while (arr[last_index] != tool->cheapest_to_top_a)
 			do_one_stack_operation(a, b, ra, tool);
 		return ;
 	}
-	else if (get_index(a, cheapest_to_top) < (a->last_index / 2))
-		while (arr[last_index] != cheapest_to_top)
+	else
+		while (arr[last_index] != tool->cheapest_to_top_a)
 			do_one_stack_operation(a, b, rra, tool);
 }
 
@@ -94,20 +92,22 @@ static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool)
 {
 	int	*arr;
 	int	last_index;
-	int	cheapest_to_top;
+	int normalized_last_index;
 
+	normalized_last_index = a->last_index + (a->last_index & 1);
 	arr = b->stack;
 	last_index = b->last_index;
-	cheapest_to_top = tool->cheapest_to_top_b;
 	tool->which = B;
-	if (get_index(b, cheapest_to_top) >= (b->last_index / 2))
+	if (tool->cheapest_to_top_b == b->stack[b->last_index])
+		return ;
+	if (get_index(b, tool->cheapest_to_top_b) >= normalized_last_index / 2)
 	{
-		while (arr[last_index] != cheapest_to_top)
+		while (arr[last_index] != tool->cheapest_to_top_b)
 			do_one_stack_operation(a, b, rb, tool);
 		return ;
 	}
-	else if (get_index(b, cheapest_to_top) < (b->last_index / 2))
-		while (arr[last_index] != cheapest_to_top)
+	else
+		while (arr[last_index] != tool->cheapest_to_top_b)
 			do_one_stack_operation(a, b, rrb, tool);
 }
 

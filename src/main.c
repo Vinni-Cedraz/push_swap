@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 23:54:14 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/06 22:07:39 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "pushswap_includes.h"
 
 static void	create_stacks(t_stack *a, t_stack *b, int len);
-static void	read_list(char **argv, t_stack *a);
+static void	read_args(char **argv, t_stack *a, int last_index);
 static void	destroy_stacks(t_stack *a, t_stack *b);
 static void	push_back_toa(t_stack *a, t_stack *b, t_tool *tool);
 
@@ -30,8 +30,8 @@ int	main(int argc, char **argv)
 	a = malloc(sizeof(t_stack));
 	b = malloc(sizeof(t_stack));
 	create_stacks(a, b, argc - 1);
-	read_list(argv + 1, a);
-	debug_header(a);
+	read_args(argv + 1, a, argc - 2);
+	// debug_header(a);
 	if (argc <= 6)
 		small_size_sort(a, b, tool);
 	else
@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 		sort_three(a, b, tool);
 		push_back_toa(a, b, tool);
 	}
-	debug_footer(a, tool);
+	// debug_footer(a);
 	destroy_stacks(a, b);
 }
 
@@ -55,17 +55,24 @@ static void	create_stacks(t_stack *a, t_stack *b, int len)
 	b->last_index = -1;
 }
 
-static void	read_list(char **argv, t_stack *a)
+static void	read_args(char **argv, t_stack *a, int last_index)
 {
 	int	i;
+	int j;
 	int	*stack;
 
-	i = -1;
+	i = last_index;
+	j = 0;
 	stack = a->stack;
-	while (argv[++i])
-		stack[i] = ft_atoi(argv[i]);
-	a->last_index = i - 1;
+	a->last_index = i;
+	while (i + 1)
+	{
+		stack[j] = ft_atoi(argv[i]);
+		i--;
+		j++;
+	}
 }
+  
 
 static void	destroy_stacks(t_stack *a, t_stack *b)
 {
@@ -94,7 +101,7 @@ static void	push_back_toa(t_stack *a, t_stack *b, t_tool *tool)
 	while (a->stack[a->last_index] != lowest)
 		do_one_stack_operation(a, b, rra, tool);
 	while (b->last_index != -1)
-		do_two_stacks_operation(a, b, pa, tool, 0);
+		do_two_stacks_operation(a, b, pa, 0);
 	while (count--)
 		do_one_stack_operation(a, b, rra, tool);
 }

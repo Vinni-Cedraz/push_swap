@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:50:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 22:40:41 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/06 19:18:39 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,13 @@ typedef struct s_tool
 {
 	t_which_stack		which;
 	t_which_operation	which_operation;
-	int					count;
-	int					last_pa;
+	t_which_operation	which_operation_a;
+	t_which_operation	which_operation_b;
+	int					cost_to_top_a;
+	int					cost_to_top_b;
 	int					cheapest_to_top_a;
 	int					cheapest_to_top_b;
+	int					current_total_cost;
 	int					do_rr;
 	int					do_rrr;
 	int					*lowest_three;
