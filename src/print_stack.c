@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:16:10 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/02 15:30:28 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/08 17:06:44 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	print_stack(t_stack *stack, int first_index)
 	if (first_index != stack->last_index)
 		print_stack(stack, first_index + 1);
 	ft_putnbr_fd(stack->stack[first_index], 1);
-	ft_putchar_fd('\n', 1);
+	ft_putchar('\n');
 }
