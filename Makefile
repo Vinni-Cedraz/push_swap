@@ -10,10 +10,10 @@ MAGENTA         =  \033[0;95m
 DEF_COLOR       =  \033[0;39m
 
 NAME = push_swap.a
-LIBFT_PATH = libft/
+LIBFT_PATH = libs/
 INC = -Iincludes/ -I$(LIBFT_PATH)
 EXECUTABLE = push_swap
-CFLAGS = -Wall -Wextra -Werror -g $(INC)
+CFLAGS = -Wall -Wextra -Werror -O3 $(INC)
 
 SRCS = \
 	  main \
@@ -21,6 +21,7 @@ SRCS = \
 	  push \
 	  rotate \
 	  reverse_rotate \
+	  execute_operations \
 	  tests \
 	  small_size_sort \
 	  big_size_sort \
@@ -73,7 +74,6 @@ LOOP:
 			printf "$(WHITE)$$file.c$(GREEN) OK$(DEF_COLOR)\n\n"; \
 		fi; \
 	done
-
 
 clean:
 	@make -C $(LIBFT_PATH) clean --no-print-directory

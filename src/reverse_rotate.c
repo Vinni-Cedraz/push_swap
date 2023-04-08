@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:39:06 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/03/30 11:46:56 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:28:42 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static void	reverse_rotate(t_stack *stack);
 
-void	rra(t_stack *a, int is_rrr)
+void	rra(t_stack *a, int being_called_by_rrr)
 {
-	if (!is_rrr)
+	if (!being_called_by_rrr)
 		ft_putstr("rra\n");
 	reverse_rotate(a);
 }
 
-void	rrb(t_stack *b, int is_rrr)
+void	rrb(t_stack *b, int being_called_by_rrr)
 {
-	if (!is_rrr)
+	if (!being_called_by_rrr)
 		ft_putstr("rrb\n");
 	reverse_rotate(b);
 }

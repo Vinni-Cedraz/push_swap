@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/07 17:20:45 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:33:17 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,9 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 {
 	int	i;
 	int	*arr;
-	int	last_cost;
-	int	tmp;
 
 	i = -1;
-	last_cost = __INT_MAX__;
+	tool->last_cost = __INT_MAX__;
 	arr = a->stack;
 	while (++i <= a->last_index)
 	{
@@ -34,19 +32,18 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 		if (arr[i] < get_smallest(b) || arr[i] > get_biggest(b))
 		{
 			get_push_cost(a, b, i, get_index(b, get_biggest(b)), tool);
-			tmp = get_biggest(b);
+			tool->tmp = get_biggest(b);
 		}
 		else
 		{
 			get_push_cost(a, b, i, get_index(b, get_neighbor(b, arr[i])), tool);
-			tmp = get_neighbor(b, arr[i]);
+			tool->tmp = get_neighbor(b, arr[i]);
 		}
 		get_current_total_cost(tool);
-		if (current_is_cheaper(tool->current_total_cost, last_cost))
-			set_do_rr_do_rrr(tool, &last_cost, arr[i], tmp);
+		if (current_is_cheaper(tool))
+			set_do_rr_do_rrr(tool, arr[i], tool->tmp);
 	}
-	if (a->last_index > 2)
-		push_to_b(a, b, tool);
+	push_to_b(a, b, tool);
 }
 
 static void	push_to_b(t_stack *a, t_stack *b, t_tool *tool)
@@ -70,12 +67,12 @@ static void	move_cheapest_to_top_of_a(t_stack *a, t_stack *b, t_tool *tool)
 {
 	int	*arr;
 	int	last_index;
-	int normalized_last_index;
+	int	normalized_last_index;
 
 	normalized_last_index = a->last_index + (a->last_index & 1);
 	arr = a->stack;
 	last_index = a->last_index;
-	tool->which = A;
+	tool->which_stack = A;
 	if (tool->cheapest_to_top_a == a->stack[a->last_index])
 		return ;
 	if (get_index(a, tool->cheapest_to_top_a) >= normalized_last_index / 2)
@@ -93,12 +90,12 @@ static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool)
 {
 	int	*arr;
 	int	last_index;
-	int normalized_last_index;
+	int	normalized_last_index;
 
 	normalized_last_index = b->last_index + (b->last_index & 1);
 	arr = b->stack;
 	last_index = b->last_index;
-	tool->which = B;
+	tool->which_stack = B;
 	if (tool->cheapest_to_top_b == b->stack[b->last_index])
 		return ;
 	if (get_index(b, tool->cheapest_to_top_b) >= normalized_last_index / 2)

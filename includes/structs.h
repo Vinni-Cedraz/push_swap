@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:50:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/06 19:18:39 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/08 15:19:46 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ typedef enum e_another_enum
 
 typedef struct s_tool
 {
-	t_which_stack		which;
+	t_stack				**stack_a;
+	t_stack				**stack_b;
+	t_which_stack		which_stack;
 	t_which_operation	which_operation;
 	t_which_operation	which_operation_a;
 	t_which_operation	which_operation_b;
@@ -48,6 +50,8 @@ typedef struct s_tool
 	int					do_rr;
 	int					do_rrr;
 	int					*lowest_three;
+	int					last_cost;
+	int					tmp;
 }						t_tool;
 
 #endif
