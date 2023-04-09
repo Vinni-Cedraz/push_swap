@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   execute_operations.c                               :+:      :+:    :+:   */
+/*   execute_operations_debug.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 10:02:09 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 15:33:00 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/09 21:03:54 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ void	do_one_stack_operation(t_stack *a, t_stack *b, t_funct1 f, t_tool *tool)
 		(f)(a, is_two_stacks_op);
 	if (tool->which_stack == B)
 		(f)(b, is_two_stacks_op);
+	a->counter++;
 	check_stacks(a, b);
 }
 
 void	do_two_stacks_operation(t_stack *a, t_stack *b, t_funct2 f, int is_rot)
 {
 	(f)(a, b, is_rot);
+	a->counter++;
 	check_stacks(a, b);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:50:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 15:19:46 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/09 21:03:38 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_st
 {
 	int					*stack;
 	int					last_index;
+	int					counter;
 }						t_stack;
 
 typedef enum e_enum
@@ -36,8 +37,8 @@ typedef enum e_another_enum
 
 typedef struct s_tool
 {
-	t_stack				**stack_a;
-	t_stack				**stack_b;
+	t_stack				*stack_a;
+	t_stack				*stack_b;
 	t_which_stack		which_stack;
 	t_which_operation	which_operation;
 	t_which_operation	which_operation_a;

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_debug.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 15:34:01 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/08 19:07:52 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "prototypes.h"
 #include "pushswap_includes.h"
 
-static void	create_stacks(t_stack *a, t_stack *b, int len);
+static void	create_stacks(t_stack *a, t_stack *b, t_tool *tool, int len);
 static void	read_args(char **argv, t_stack *a, int last_index);
 static void	destroy_stacks(t_stack *a, t_stack *b);
 static void	push_back_toa(t_stack *a, t_stack *b, t_tool *tool);
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	tool->lowest_three = malloc(sizeof(int) * 3);
 	a = malloc(sizeof(t_stack));
 	b = malloc(sizeof(t_stack));
-	create_stacks(a, b, argc - 1);
+	create_stacks(a, b, tool, argc - 1);
 	read_args(argv + 1, a, argc - 2);
 	debug_header(a);
 	if (argc <= 6)
@@ -47,12 +47,14 @@ int	main(int argc, char **argv)
 	destroy_stacks(a, b);
 }
 
-static void	create_stacks(t_stack *a, t_stack *b, int len)
+static void	create_stacks(t_stack *a, t_stack *b, t_tool *tool, int len)
 {
 	a->stack = ft_calloc(len, sizeof(int));
 	b->stack = ft_calloc(len, sizeof(int));
 	a->last_index = len - 1;
 	b->last_index = -1;
+	tool->stack_a = a;
+	tool->stack_b = b;
 }
 
 static void	read_args(char **argv, t_stack *a, int last_index)

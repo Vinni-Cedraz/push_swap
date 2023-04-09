@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 15:33:17 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/09 21:10:15 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	big_size_sort(t_stack *a, t_stack *b, t_tool *tool)
 			continue ;
 		if (arr[i] < get_smallest(b) || arr[i] > get_biggest(b))
 		{
-			get_push_cost(a, b, i, get_index(b, get_biggest(b)), tool);
+			get_push_cost(i, get_index(b, get_biggest(b)), tool);
 			tool->tmp = get_biggest(b);
 		}
 		else
 		{
-			get_push_cost(a, b, i, get_index(b, get_neighbor(b, arr[i])), tool);
+			get_push_cost(i, get_index(b, get_neighbor(b, arr[i])), tool);
 			tool->tmp = get_neighbor(b, arr[i]);
 		}
 		get_current_total_cost(tool);
@@ -109,8 +109,6 @@ static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool)
 			do_one_stack_operation(a, b, rrb, tool);
 }
 
-// among all numbers on stack b that are smaller than "value",
-// get the one that is closest to value (smallest positive diff):
 static int	get_neighbor(t_stack *b, int value)
 {
 	int	i;

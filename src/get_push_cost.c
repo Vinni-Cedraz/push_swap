@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 21:28:08 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/07 23:26:52 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/08 19:07:04 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	cost_to_make_it_top(t_stack *stack, int index, t_tool *tool)
 {
 	int	cost;
-	int normalized_last_index;
+	int	normalized_last_index;
 
 	normalized_last_index = stack->last_index + (stack->last_index & 1);
 	if (index == stack->last_index)
@@ -37,15 +37,10 @@ int	cost_to_make_it_top(t_stack *stack, int index, t_tool *tool)
 	return (cost);
 }
 
-void	get_push_cost(
-	t_stack *a,
-	t_stack *b,
-	int pos_a,
-	int pos_b,
-	t_tool *tool)
+void	get_push_cost(int pos_a, int pos_b, t_tool *tool)
 {
-	tool->cost_to_top_a = cost_to_make_it_top(a, pos_a, tool);
+	tool->cost_to_top_a = cost_to_make_it_top(tool->stack_a, pos_a, tool);
 	tool->which_operation_a = tool->which_operation;
-	tool->cost_to_top_b = cost_to_make_it_top(b, pos_b, tool);
+	tool->cost_to_top_b = cost_to_make_it_top(tool->stack_b, pos_b, tool);
 	tool->which_operation_b = tool->which_operation;
 }

@@ -6,17 +6,16 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 16:07:13 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/08 21:57:43 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "prototypes.h"
 #include "pushswap_includes.h"
 
-static void	create_stacks(t_stack *a, t_stack *b, int len);
-static void	read_args(char **argv, t_stack *a, int last_index);
 static void	destroy_stacks(t_stack *a, t_stack *b);
 static void	push_back_toa(t_stack *a, t_stack *b, t_tool *tool);
+static void	create_stacks(t_stack *a, t_stack *b, t_tool *tool, int len);
+static void	read_args(char **argv, t_stack *a, int last_index);
 
 int	main(int argc, char **argv)
 {
@@ -29,8 +28,10 @@ int	main(int argc, char **argv)
 	tool->lowest_three = malloc(sizeof(int) * 3);
 	a = malloc(sizeof(t_stack));
 	b = malloc(sizeof(t_stack));
-	create_stacks(a, b, argc - 1);
+	create_stacks(a, b, tool, argc - 1);
 	read_args(argv + 1, a, argc - 2);
+	if (has_duplicates(a->stack, argc - 1))
+		ft_error();
 	if (argc <= 6)
 		small_size_sort(a, b, tool);
 	else
@@ -45,12 +46,14 @@ int	main(int argc, char **argv)
 	destroy_stacks(a, b);
 }
 
-static void	create_stacks(t_stack *a, t_stack *b, int len)
+static void	create_stacks(t_stack *a, t_stack *b, t_tool *tool, int len)
 {
 	a->stack = ft_calloc(len, sizeof(int));
 	b->stack = ft_calloc(len, sizeof(int));
 	a->last_index = len - 1;
 	b->last_index = -1;
+	tool->stack_a = a;
+	tool->stack_b = b;
 }
 
 static void	read_args(char **argv, t_stack *a, int last_index)
@@ -60,6 +63,10 @@ static void	read_args(char **argv, t_stack *a, int last_index)
 	int	*stack;
 
 	i = last_index;
+	j = -1;
+	while (++j <= last_index)
+		if (!is_valid_number(argv[j]))
+			ft_error();
 	j = 0;
 	stack = a->stack;
 	a->last_index = i;

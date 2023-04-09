@@ -23,7 +23,7 @@ else
 fi
 array=()
 declare -A hash_table
-while (( ${#hash_table[@]} < $(( $size * 100 )) )); do
+while (( ${#hash_table[@]} < $(( $size * 10 )) )); do
   while (( ${#array[@]} < $size )); do
     num=$((RANDOM % ($INT_MAX - $INT_MIN + 1) + $INT_MIN))
     if ! [[ ${array[*]} =~ $num ]]; then

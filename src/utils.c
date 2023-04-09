@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 20:19:50 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/05 12:59:44 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/08 20:29:54 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	is_sorted(t_stack *a)
 	return (1);
 }
 
-// get the smallest number starting to count from n
 int	get_smallest_from_n(t_stack *stack, int n)
 {
 	int	smallest;
