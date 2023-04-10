@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 19:07:52 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/09 21:54:42 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ static void	create_stacks(t_stack *a, t_stack *b, t_tool *tool, int len)
 	tool->stack_b = b;
 }
 
+static void	destroy_stacks(t_stack *a, t_stack *b)
+{
+	free(a->stack);
+	free(b->stack);
+	free(a);
+	free(b);
+}
+
 static void	read_args(char **argv, t_stack *a, int last_index)
 {
 	int	i;
@@ -64,23 +72,21 @@ static void	read_args(char **argv, t_stack *a, int last_index)
 	int	*stack;
 
 	i = last_index;
+	j = -1;
+	while (++j <= last_index)
+		if (!is_valid_number(argv[j]))
+			ft_error();
 	j = 0;
 	stack = a->stack;
 	a->last_index = i;
 	while (i + 1)
 	{
-		stack[j] = ft_atoi(argv[i]);
+		if (ft_atol(argv[i]) > __INT_MAX__ || ft_atol(argv[i]) < -__INT_MAX__)
+			ft_error();
+		stack[j] = ft_atol(argv[i]);
 		i--;
 		j++;
 	}
-}
-
-static void	destroy_stacks(t_stack *a, t_stack *b)
-{
-	free(a->stack);
-	free(b->stack);
-	free(a);
-	free(b);
 }
 
 static void	push_back_toa(t_stack *a, t_stack *b, t_tool *tool)

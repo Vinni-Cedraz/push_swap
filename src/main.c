@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 21:57:43 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/09 21:52:23 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,9 @@ static void	read_args(char **argv, t_stack *a, int last_index)
 	a->last_index = i;
 	while (i + 1)
 	{
-		stack[j] = ft_atoi(argv[i]);
+		if (ft_atol(argv[i]) > __INT_MAX__ || ft_atol(argv[i]) < -__INT_MAX__)
+			ft_error();
+		stack[j] = ft_atol(argv[i]);
 		i--;
 		j++;
 	}

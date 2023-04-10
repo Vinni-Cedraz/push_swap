@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/09 21:10:15 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/09 22:00:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ static int	get_neighbor(t_stack *b, int value)
 	diff = 0;
 	arr = b->stack;
 	smallest_diff = __INT_MAX__;
+	neighbor = 0;
 	while (++i <= b->last_index)
 	{
 		if (arr[i] < value)

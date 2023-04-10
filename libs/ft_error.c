@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 21:12:59 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 21:13:09 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/09 22:01:01 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_error(void)
 {
-	write(1, "Error\n", 6);
+	ft_putstr_fd("Error", 1);
 	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:11 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/09 21:37:22 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/09 21:51:25 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,7 +195,7 @@ void		ft_free_t_split(t_split *split);
 // this is ft_atoi_base, it converts a string to an int in a given base:
 int			ft_atoi_base(char *str, char *base);
 // atoi long is used for bigger numbers and for checking int overflow:
-long		ft_atoi_long(char *str);
+long		ft_atol(char *str);
 // cheks if its an uppercase hex string:
 int			ft_ishexup(char *s);
 // hex low:

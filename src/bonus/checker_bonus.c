@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:01:12 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/09 00:44:46 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/09 22:04:10 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ int	main(int argc, char **argv)
 			free_stuff(a, b, tool, 1);
 	}
 	if ((!line && !is_sorted(a)))
-		write(1, "KO\n", 3);
+		ft_putstr_fd("KO", 1);
 	else if (!line && is_sorted(a))
-		write(1, "OK\n", 3);
+		ft_putstr_fd("OK", 1);
 	free_stuff(a, b, tool, 0);
 }
 

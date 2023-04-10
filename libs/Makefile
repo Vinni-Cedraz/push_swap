@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/04/09 21:37:33 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/04/09 21:51:34 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ WHITE = \033[0;97m
 ## SRCS VARIABLES ##
 SRCS = ft_abs \
 ft_atoi \
-ft_atoi_long \
+ft_atol \
 ft_free_t_split \
 ft_free_arr \
 ft_free_arr_size \
