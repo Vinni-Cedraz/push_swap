@@ -5,6 +5,10 @@
 
 #include "libs/libft.h"
 
+typedef struct s_args {
+    int **table;
+} t_args;
+
 void *execute_push_swap(void **arg);
 
 int is_reverse_sorted(int *arr, int last_index) {
@@ -54,115 +58,129 @@ void print_arr(int *arr) {
     printf("\n");
 }
 
-void *execute_push_swap_t1(void **table) {
-    int **args = (int **)table;
+void *execute_push_swap_t1(void *args_void) {
+    t_args *args = (t_args *)args_void;
+    int **table = args->table;
     char command[100];
     char buffer[10];
     FILE *output;
     int i = 0;
 
-    while (args[i][0] != 1) i++;
-    while (args[i][0] == 1) {
-        sprintf(command, "./push_swap %d %d %d %d %d | wc -l", args[i][0],
-                args[i][1], args[i][2], args[i][3], args[i][4]);
+    while (table[i][0] != 1) i++;
+    while (table[i][0] == 1) {
+        sprintf(command, "./push_swap %d %d %d %d %d | wc -l", table[i][0],
+                table[i][1], table[i][2], table[i][3], table[i][4]);
         output = popen(command, "r");
         fgets(buffer, 10, output);
         printf("%s", buffer);
         pclose(output);
         i++;
     }
+    pthread_exit(NULL);
     return NULL;
 }
 
-void *execute_push_swap_t2(void **table) {
-    int **args = (int **)table;
+void *execute_push_swap_t2(void *args_void) {
+    t_args *args = (t_args *)args_void;
+    int **table = args->table;
     char command[100];
     char buffer[10];
     FILE *output;
     int i = 0;
 
-    while (args[i][0] != 2) i++;
-    while (args[i][0] == 2) {
-        sprintf(command, "./push_swap %d %d %d %d %d | wc -l", args[i][0],
-                args[i][1], args[i][2], args[i][3], args[i][4]);
+    while (table[i][0] != 2) i++;
+    while (table[i][0] == 2) {
+        sprintf(command, "./push_swap %d %d %d %d %d | wc -l", table[i][0],
+                table[i][1], table[i][2], table[i][3], table[i][4]);
         output = popen(command, "r");
         fgets(buffer, 10, output);
         printf("%s", buffer);
         pclose(output);
         i++;
     }
+    pthread_exit(NULL);
     return NULL;
 }
 
-void *execute_push_swap_t3(void **table) {
-    int **args = (int **)table;
+void *execute_push_swap_t3(void *args_void) {
+    t_args *args = (t_args *)args_void;
+    int **table = args->table;
     char command[100];
     char buffer[10];
     FILE *output;
     int i = 0;
 
-    while (args[i][0] != 3) i++;
-    while (args[i][0] == 3) {
-        sprintf(command, "./push_swap %d %d %d %d %d | wc -l", args[i][0],
-                args[i][1], args[i][2], args[i][3], args[i][4]);
+    while (table[i][0] != 3) i++;
+    while (table[i][0] == 3) {
+        sprintf(command, "./push_swap %d %d %d %d %d | wc -l", table[i][0],
+                table[i][1], table[i][2], table[i][3], table[i][4]);
         output = popen(command, "r");
         fgets(buffer, 10, output);
         printf("%s", buffer);
         pclose(output);
         i++;
     }
+    pthread_exit(NULL);
     return NULL;
 }
 
-void *execute_push_swap_t4(void **table) {
-    int **args = (int **)table;
+void *execute_push_swap_t4(void *args_void) {
+    t_args *args = (t_args *)args_void;
+    int **table = args->table;
     char command[100];
     char buffer[10];
     FILE *output;
     int i = 0;
 
-    while (args[i][0] != 4) i++;
-    while (args[i][0] == 4) {
-        sprintf(command, "./push_swap %d %d %d %d %d | wc -l", args[i][0],
-                args[i][1], args[i][2], args[i][3], args[i][4]);
+    while (table[i][0] != 4) i++;
+    while (table[i][0] == 4) {
+        sprintf(command, "./push_swap %d %d %d %d %d | wc -l", table[i][0],
+                table[i][1], table[i][2], table[i][3], table[i][4]);
         output = popen(command, "r");
         fgets(buffer, 10, output);
         printf("%s", buffer);
         pclose(output);
         i++;
     }
+    pthread_exit(NULL);
     return NULL;
 }
 
-void *execute_push_swap_t5(void **table) {
-    int **args = (int **)table;
+void *execute_push_swap_t5(void *args_void) {
+    t_args *args = (t_args *)args_void;
+    int **table = args->table;
     char command[100];
     char buffer[10];
     FILE *output;
 
-    while (**args != 5) args++;
-    while (*args != NULL) {
-        sprintf(command, "./push_swap %d %d %d %d %d | wc -l", args[0][0],
-                args[0][1], args[0][2], args[0][3], args[0][4]);
+    while (**table != 5) table++;
+    while (*table != NULL) {
+        sprintf(command, "./push_swap %d %d %d %d %d | wc -l", table[0][0],
+                table[0][1], table[0][2], table[0][3], table[0][4]);
         output = popen(command, "r");
         fgets(buffer, 10, output);
         printf("%s", buffer);
         pclose(output);
         args++;
     }
+    pthread_exit(NULL);
     return NULL;
 }
 
 int main(void) {
-    // int count = 0;
-    // pthread_t threads[120];
-    int **table;
-    table = init_permutation_table();
-    execute_push_swap_t1((void **)table);
-    execute_push_swap_t2((void **)table);
-    execute_push_swap_t3((void **)table);
-    execute_push_swap_t4((void **)table);
-    execute_push_swap_t5((void **)table);
-    // printf("threads joined: %d\n", count);
-    ft_free_arr((char **)table, (void **)table);
+    t_args *args = malloc(sizeof(t_args));
+    pthread_t pthread[5];
+    args->table = init_permutation_table();
+    pthread_create(&pthread[0], NULL, execute_push_swap_t1, (void *)args);
+    pthread_create(&pthread[1], NULL, execute_push_swap_t2, (void *)args);
+    pthread_create(&pthread[2], NULL, execute_push_swap_t3, (void *)args);
+    pthread_create(&pthread[3], NULL, execute_push_swap_t4, (void *)args);
+    pthread_create(&pthread[4], NULL, execute_push_swap_t5, (void *)args);
+    int count = 0;
+    while (count < 5) {
+        pthread_join(pthread[count], NULL);
+        count++;
+    }
+    ft_free_arr((char **)args->table, (void **)args->table);
+    free(args);
 }
