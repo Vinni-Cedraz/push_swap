@@ -83,17 +83,9 @@ all: $(NAME)
 make_libft:
 	@make -C $(LIBFT_PATH) --no-print-directory
 
-test100: all
-	@if [[ -z "$$(ls -A shuf100)" ]]; then \
-		cc -x c++ -O3 -lgmp shuf100.cpp -o shuf100 -lstdc++; \
-		./shuf100; \
-	else \
-		./shuf100; \
-	fi
-
 test5: all
 	@if [[ -z "$$(ls -A shuf5)" ]]; then \
-		cc -O3 shuf5.c -o shuf5; \
+		cc -O3 shuf5.c libs/ft_free_arr.c -o shuf5; \
 		./shuf5; \
 	else \
 		./shuf5; \
