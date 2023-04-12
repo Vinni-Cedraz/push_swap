@@ -9,8 +9,6 @@ typedef struct s_args {
     int **table;
 } t_args;
 
-void *execute_push_swap(void **arg);
-
 int is_reverse_sorted(int *arr, int last_index) {
     for (int i = 0; i < last_index; i++)
         if (arr[i] < arr[i + 1]) return 0;
@@ -38,24 +36,20 @@ int *next_permutation(int *arr, int last_index) {
     return arr;
 }
 
-int **init_permutation_table() {
+int **init_permutation_table(void) {
     int count = 0;
-    int *temp = malloc(sizeof(int) * 5);
+    int *arr = malloc(sizeof(int) * 5);
     int **table = calloc(sizeof(int *), 121);
+    int *is_still_going = &(int){1};
+    arr[0] = 1, arr[1] = 2, arr[2] = 3, arr[3] = 4, arr[4] = 5;
 
-    temp[0] = 1, temp[1] = 2, temp[2] = 3, temp[3] = 4, temp[4] = 5;
-    while (temp) {
+    while ((is_still_going = next_permutation(arr, 4))) {
         table[count] = malloc(sizeof(int) * 5);
-        for (int i = 0; i < 5; i++) table[count][i] = temp[i];
-        temp = next_permutation(temp, 4);
+        for (int i = 0; i < 5; i++) table[count][i] = arr[i];
         count++;
     }
+    free(arr);
     return table;
-}
-
-void print_arr(int *arr) {
-    for (int i = 0; i < 5; i++) printf("%d ", arr[i]);
-    printf("\n");
 }
 
 void *execute_push_swap_t1(void *args_void) {
@@ -161,7 +155,7 @@ void *execute_push_swap_t5(void *args_void) {
         fgets(buffer, 10, output);
         printf("%s", buffer);
         pclose(output);
-        args++;
+        table++;
     }
     pthread_exit(NULL);
     return NULL;
@@ -181,6 +175,7 @@ int main(void) {
         pthread_join(pthread[count], NULL);
         count++;
     }
+    printf("numbers of threads joined: %d\n", count);
     ft_free_arr((char **)args->table, (void **)args->table);
     free(args);
 }

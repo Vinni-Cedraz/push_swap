@@ -17,7 +17,7 @@ INC = -Iincludes/ -I$(LIBFT_PATH)
 EXECUTABLE = push_swap
 ALT_EXECUTABLE = push_swap_debug
 BONUS_EXECUTABLE = checker_bonus
-CFLAGS = -Wall -Wextra -Werror -O3 $(INC)
+CFLAGS = -Wall -Wextra -Werror -g $(INC)
 
 SRCS = \
 	  main \
@@ -85,7 +85,7 @@ make_libft:
 
 test5: all
 	@if [[ -z "$$(ls -A shuf5)" ]]; then \
-		cc -O3 shuf5.c libs/ft_free_arr.c -o shuf5; \
+		cc -g shuf5.c libs/ft_free_arr.c -o shuf5; \
 		./shuf5; \
 	else \
 		./shuf5; \
