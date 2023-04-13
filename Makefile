@@ -17,7 +17,7 @@ INC = -Iincludes/ -I$(LIBFT_PATH)
 EXECUTABLE = push_swap
 ALT_EXECUTABLE = push_swap_debug
 BONUS_EXECUTABLE = checker_bonus
-CFLAGS = -Wall -Wextra -Werror -g $(INC)
+CFLAGS = -Wall -Wextra -Werror -O3 $(INC)
 
 SRCS = \
 	  main \
@@ -31,6 +31,7 @@ SRCS = \
 	  utils \
 	  get_push_cost \
 	  is_lowest_three \
+	  print_stack \
 	  get_current_total_cost \
 	  parsing_utils \
 	  swap
@@ -85,11 +86,20 @@ make_libft:
 
 test5: all
 	@if [[ -z "$$(ls -A shuf5)" ]]; then \
-		cc -g shuf5.c libs/ft_free_arr.c -o shuf5; \
+		cc -O3 shuf5.c libs/ft_free_arr.c -o shuf5; \
 		./shuf5; \
 	else \
 		./shuf5; \
 	fi
+
+test8: all
+	@if [[ -z "$$(ls -A shuf8)" ]]; then \
+		cc -O3 shuf8.c libs/ft_free_arr.c -o shuf8; \
+		./shuf8; \
+	else \
+		./shuf8; \
+	fi
+
 
 $(NAME): $(OBJS) make_libft
 	@printf "\n$(YELLOW)Linking FDF Objects to Library...$(DEF_COLOR)\n";
@@ -142,6 +152,7 @@ fclean_nolib: clean_nolib
 	@rm -f $(NAME_BONUS)
 	@rm -f shuf100
 	@rm -f shuf5
+	@rm -f shuf8
 
 fclean: fclean_nolib
 	@make -C $(LIBFT_PATH) fclean --no-print-directory

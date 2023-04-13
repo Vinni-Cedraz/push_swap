@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/09 21:52:23 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/13 10:51:26 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	destroy_stacks(t_stack *a, t_stack *b);
 static void	push_back_toa(t_stack *a, t_stack *b, t_tool *tool);
 static void	create_stacks(t_stack *a, t_stack *b, t_tool *tool, int len);
-static void	read_args(char **argv, t_stack *a, int last_index);
+static void	read_args(char **argv, t_stack *a, t_stack *b, int last_index);
 
 int	main(int argc, char **argv)
 {
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	a = malloc(sizeof(t_stack));
 	b = malloc(sizeof(t_stack));
 	create_stacks(a, b, tool, argc - 1);
-	read_args(argv + 1, a, argc - 2);
+	read_args(argv + 1, a, b, argc - 2);
 	if (has_duplicates(a->stack, argc - 1))
 		ft_error();
 	if (argc <= 6)
@@ -56,7 +56,7 @@ static void	create_stacks(t_stack *a, t_stack *b, t_tool *tool, int len)
 	tool->stack_b = b;
 }
 
-static void	read_args(char **argv, t_stack *a, int last_index)
+static void	read_args(char **argv, t_stack *a, t_stack *b, int last_index)
 {
 	int	i;
 	int	j;
@@ -77,6 +77,12 @@ static void	read_args(char **argv, t_stack *a, int last_index)
 		stack[j] = ft_atol(argv[i]);
 		i--;
 		j++;
+	}
+	if (is_sorted(a))
+	{
+		ft_putstr("");
+		destroy_stacks(a, b);
+		exit(EXIT_SUCCESS);
 	}
 }
 

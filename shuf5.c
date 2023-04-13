@@ -15,6 +15,11 @@ int is_reverse_sorted(int *arr, int last_index) {
     return 1;
 }
 
+void print_arr(int *arr, int last_index) {
+    for (int i = 0; i <= last_index; i++) printf("%d ", arr[i]);
+    printf("\n");
+}
+
 int *next_permutation(int *arr, int last_index) {
     if (is_reverse_sorted(arr, last_index)) return NULL;
     int i = last_index;
@@ -40,14 +45,17 @@ int **init_permutation_table(void) {
     int count = 0;
     int *arr = malloc(sizeof(int) * 5);
     int **table = calloc(sizeof(int *), 121);
-    int *is_still_going = &(int){1};
+    int *is_still_going_on;
     arr[0] = 1, arr[1] = 2, arr[2] = 3, arr[3] = 4, arr[4] = 5;
 
-    while ((is_still_going = next_permutation(arr, 4))) {
-        table[count] = malloc(sizeof(int) * 5);
-        for (int i = 0; i < 5; i++) table[count][i] = arr[i];
-        count++;
-    }
+    do {
+        if ((is_still_going_on = next_permutation(arr, 4))) {
+            table[count] = malloc(sizeof(int) * 5);
+            for (int i = 0; i < 5; i++) table[count][i] = arr[i];
+            count++;
+        }
+    } while (is_still_going_on);
+
     free(arr);
     return table;
 }
