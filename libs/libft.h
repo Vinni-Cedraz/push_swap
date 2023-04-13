@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:11 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/09 21:51:25 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/13 18:19:01 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,7 +188,7 @@ void		ft_hexdump(char *str);
 size_t		ft_putstr(char *str);
 // this is a function to measure if ft_calloc worked properly:
 size_t		ft_memorylen(void *ptr, size_t size);
-// this is ft_gnl (get next line):
+// ft_gnl reads a file and returns from it one string at each call:
 char		*ft_gnl(int fd);
 // this frees a t_split pointer:
 void		ft_free_t_split(t_split *split);
