@@ -5,8 +5,8 @@
 
 #include "libs/libft.h"
 
-#define WORST 11500
-#define IGNORE_AVERAGE 0
+#define WORST 27
+#define IGNORE_AVERAGE 1
 
 typedef struct s_worst_cases {
     int _1;

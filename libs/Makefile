@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/04/09 21:51:34 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/04/15 14:34:05 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME_BONUS = libft_bonus.a
 NAME_PRNTF = ../libftprintf.a
 NAME_FDF = srcs_to_fdf.a
 NAME_FDF_BONUS = srcs_to_fdf_bonus.a
-CFLAGS = -Wall -Werror -Wextra -g
+CFLAGS = -Wall -Werror -Wextra -O3
 AR = ar -rs
 RM = rm -f
 OBJS_PATH = ./objs/
@@ -57,6 +57,7 @@ ft_memset \
 ft_numlen \
 ft_putchar \
 ft_putchar_fd \
+ft_randomize_array \
 ft_strlen \
 ft_atoi_base \
 ft_strncmp \
