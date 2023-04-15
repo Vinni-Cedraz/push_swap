@@ -50,27 +50,6 @@ void print_arr(int *arr, int last_index) {
     printf("\n");
 }
 
-int next_permutation(int *arr, int last_index) {
-    if (is_reverse_sorted(arr, last_index)) return 0;
-    int i = last_index;
-    while (arr[i - 1] >= arr[i]) i--;
-    int j = last_index;
-    while (arr[j] <= arr[i - 1]) j--;
-
-    int temp = arr[i - 1];
-    arr[i - 1] = arr[j];
-    arr[j] = temp;
-
-    j = last_index;
-    while (i < j) {
-        temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-        i++, j--;
-    }
-    return 1;
-}
-
 int **init_permutation_table(void) {
     int count = 0;
     int *arr = malloc(sizeof(int) * 8);
