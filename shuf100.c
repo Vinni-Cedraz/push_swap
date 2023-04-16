@@ -1,12 +1,14 @@
+#include <fcntl.h>
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <unistd.h>
 
 #include "libs/libft.h"
 
-#define WORST 69979
-#define IGNORE_AVERAGE 0
+#define WORST 999999
+#define IGNORE_AVERAGE 1
 
 typedef struct s_worst_cases {
     int _1;
@@ -46,8 +48,9 @@ void print_arr(int *arr, int last_index) {
 
 int *seq_except(int exclude) {
     int j = 0;
+    int i = 0;
     int *arr = (int *)malloc(99 * sizeof(int));
-    for (int i = 1; i <= 100; i++)
+    for (; ++i != 101;)
         if (i != exclude) arr[j++] = i;
     return arr;
 }
@@ -55,20 +58,25 @@ int *seq_except(int exclude) {
 int **init_permutation_table(void) {
     int count = 0;
     int j = 1;
-    int *arr = malloc(sizeof(int) * 100);
-    int **table = calloc(sizeof(int *), 800000);
+    int *tmp_arr = calloc(sizeof(int), 99);
+    int **table = calloc(sizeof(int *), 160000);
 
     for (int i = 1; i <= 100; i++) {
-        arr = seq_except(i);
-        for (int k = 1; k <= 8000; k++) {
+        tmp_arr = seq_except(i);
+        for (int k = 1; k <= 1600; k++) {
             table[count] = malloc(sizeof(int) * 100);
             table[count][0] = i;
-            ft_randomize_array(arr, 99);
-            for (j = 1; j <= 99; j++) table[count][j] = arr[j];
+            ft_randomize_array(tmp_arr, 99);
+            int k = 0;
+            for (j = 1; j < 100; j++) {
+                table[count][j] = tmp_arr[k];
+                k++;
+            }
             count++;
         }
     }
 
+    free(tmp_arr);
     return table;
 }
 
@@ -76,9 +84,9 @@ void *execute_push_swap_t1(void *args_void) {
     t_args *args = (t_args *)args_void;
     int **table = args->table;
     char command[500];
-    char buffer[10];
+    // char buffer[10];
     int i = 0;
-    FILE *output;
+    // FILE *output;
 
     while (table[i][0] != 1) i++;
     while (table[i][0] >= 1 && table[i][0] <= 12) {
@@ -114,17 +122,7 @@ void *execute_push_swap_t1(void *args_void) {
             table[0][90], table[0][91], table[0][92], table[0][93],
             table[0][94], table[0][95], table[0][96], table[0][97],
             table[0][98], table[0][99]);
-        output = popen(command, "r");
-        char *ignore_return = fgets(buffer, 10, output);
-        (void)ignore_return;
-        if (atoi(buffer) > WORST_CASE._1) WORST_CASE._1 = atoi(buffer);
-        if (atoi(buffer) < BEST_CASE._1) BEST_CASE._1 = atoi(buffer);
-        if (WORST_CASE._1 >= WORST) {
-            printf("this is one of the worst case combinations: ");
-            print_arr(table[i], 99);
-            pthread_exit(NULL);
-        };
-        pclose(output);
+        // output = popen(command, "r");
         i++;
     }
     pthread_exit(NULL);
@@ -139,6 +137,7 @@ void *execute_push_swap_t2(void *args_void) {
     FILE *output;
     int i = 0;
 
+    FILE *fp = fopen("log.txt", "a");
     while (table[i][0] != 13) i++;
     while (table[i][0] >= 13 && table[i][0] <= 24) {
         sprintf(
@@ -175,18 +174,13 @@ void *execute_push_swap_t2(void *args_void) {
             table[i][98], table[i][99]);
 
         output = popen(command, "r");
-        char *ignore_return = fgets(buffer, 10, output);
-        (void)ignore_return;
-        if (atoi(buffer) > WORST_CASE._2) WORST_CASE._2 = atoi(buffer);
-        if (atoi(buffer) < BEST_CASE._2) BEST_CASE._2 = atoi(buffer);
-        if (WORST_CASE._2 >= WORST) {
-            printf("this is one of the worst case combinations: ");
-            print_arr(table[i], 99);
-            pthread_exit(NULL);
-        };
-        pclose(output);
+        char *out_str = fgets(buffer, 10, output);
+        fprintf(fp, "arr[%d]: {", i);
+        for (int j = 0; j < 100; j++) fprintf(fp, "%d ", table[i][j]);
+        fprintf(fp, "} number of operations: %s", out_str);
         i++;
     }
+    fclose(fp);
     pthread_exit(NULL);
     return NULL;
 }
@@ -550,7 +544,7 @@ void *execute_push_swap_t8(void *args_void) {
 int get_worst_case(t_worst_cases WORST_CASE) {
     int worst_case = 0;
     if (WORST_CASE._1 > worst_case) worst_case = WORST_CASE._1;
-	if (WORST_CASE._2 > worst_case) worst_case = WORST_CASE._2;
+    if (WORST_CASE._2 > worst_case) worst_case = WORST_CASE._2;
     if (WORST_CASE._3 > worst_case) worst_case = WORST_CASE._3;
     if (WORST_CASE._4 > worst_case) worst_case = WORST_CASE._4;
     if (WORST_CASE._5 > worst_case) worst_case = WORST_CASE._5;
@@ -561,8 +555,9 @@ int get_worst_case(t_worst_cases WORST_CASE) {
 }
 
 int get_best_case(t_best_cases BEST_CASE) {
-    int best_case = BEST_CASE._1;
-	if (BEST_CASE._2 < best_case) best_case = BEST_CASE._2;
+    int best_case = __INT_MAX__;
+    if (BEST_CASE._1 < best_case) best_case = BEST_CASE._1;
+    if (BEST_CASE._2 < best_case) best_case = BEST_CASE._2;
     if (BEST_CASE._3 < best_case) best_case = BEST_CASE._3;
     if (BEST_CASE._4 < best_case) best_case = BEST_CASE._4;
     if (BEST_CASE._5 < best_case) best_case = BEST_CASE._5;
@@ -578,10 +573,12 @@ int main(void) {
     printf("Initializing permutation table...\n\n");
     args->table = init_permutation_table();
     printf(
-        "Running push_swap in 8 different threads. This will test push_swap "
-        "800000 times with different, well distributed, permutations of 100 "
-		"element arrays.\n");
-    printf("This shouldn't take much more than 25 MINUTES.\n");
+        "Get ready to witness the ultimate push_swap breaker.\nWe'll have 8 "
+        "threads pushing your push_swap to the limits at the same time.\n"
+        "It will be a total of 80000 different args tested.\n"
+        "Don't worry, these permutations are very well distributed...\n"
+        "Unlike your life choices.\n\n");
+    printf("This shouldn't take much more than 5 minutes.\n");
     pthread_create(&pthread[0], NULL, execute_push_swap_t1, (void *)args);
     pthread_create(&pthread[1], NULL, execute_push_swap_t2, (void *)args);
     pthread_create(&pthread[2], NULL, execute_push_swap_t3, (void *)args);
@@ -593,14 +590,17 @@ int main(void) {
     int count = -1;
     while (++count < 8) pthread_join(pthread[count], NULL);
     int worst = get_worst_case(WORST_CASE);
-    printf("Number of operations in the worst cases: %d\n", worst);
+    printf("worst case: %d\n", worst);
     if (IGNORE_AVERAGE == 0) {
-    	int best = get_best_case(BEST_CASE);
-        printf("And in the the average case: %d\n", (worst + best) / 2);
+        int best = get_best_case(BEST_CASE);
+        printf("best case: %d\n", best);
         printf(
-            "\n%s\n",
+            "\n\n\n%s\n",
             "To find out some of the worst case combinations, define WORST to "
-            "the worst case and define IGNORE_AVERAGE to 1");
+            "the worst case and define IGNORE_AVERAGE to 1\n"
+            "Then you recompile and run again.\n"
+            "You might not find a combination with the same worst case again "
+            "on the first try");
     }
     ft_free_arr((char **)args->table, (void **)args->table);
     free(args);

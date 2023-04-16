@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/16 14:59:54 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:09:43 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ static void	read_args(char **argv, t_stack *a, t_stack *b, int last_index)
 	}
 	if (is_sorted(a))
 	{
-		ft_putstr("");
 		destroy_stacks(a, b);
 		exit(EXIT_SUCCESS);
 	}

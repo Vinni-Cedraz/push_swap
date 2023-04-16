@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 20:19:50 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/13 11:48:57 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:08:21 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	get_biggest(t_stack *stack)
 int	is_sorted(t_stack *a)
 {
 	int	i;
-	int *arr;
+	int	*arr;
 
 	i = 0;
 	arr = a->stack;
