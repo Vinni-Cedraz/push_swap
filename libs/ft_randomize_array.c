@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 11:52:45 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/15 16:29:12 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/16 15:12:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include <stdlib.h>
 #include <time.h>
 
-void	ft_randomize_array(int *arr, int size)
+void	ft_randomize_array(int *arr, int arr_size)
 {
 	int	i;
 	int	j;
 	int	temp;
 
 	srand(time(NULL));
-	i = size - 1;
+	i = arr_size - 1;
 	while (i > 0)
 	{
 		j = rand() % (i + 1);

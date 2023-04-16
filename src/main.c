@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/13 10:51:26 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/16 14:59:54 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 	create_stacks(a, b, tool, argc - 1);
 	read_args(argv + 1, a, b, argc - 2);
 	if (has_duplicates(a->stack, argc - 1))
-		ft_error();
+		ft_error("duplicate detected");
 	if (argc <= 6)
 		small_size_sort(a, b, tool);
 	else
@@ -66,14 +66,14 @@ static void	read_args(char **argv, t_stack *a, t_stack *b, int last_index)
 	j = -1;
 	while (++j <= last_index)
 		if (!is_valid_number(argv[j]))
-			ft_error();
+			ft_error("invalid number found");
 	j = 0;
 	stack = a->stack;
 	a->last_index = i;
 	while (i + 1)
 	{
 		if (ft_atol(argv[i]) > __INT_MAX__ || ft_atol(argv[i]) < -__INT_MAX__)
-			ft_error();
+			ft_error("a number is too big or too small");
 		stack[j] = ft_atol(argv[i]);
 		i--;
 		j++;
