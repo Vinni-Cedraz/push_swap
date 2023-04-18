@@ -17,14 +17,14 @@ INC = -Iincludes/ -I$(LIBFT_PATH)
 EXECUTABLE = push_swap
 ALT_EXECUTABLE = push_swap_debug
 BONUS_EXECUTABLE = checker_bonus
-CFLAGS = -Wall -Wextra -Werror -O3 $(INC)
+CFLAGS = -Wall -Wextra -Werror -g $(INC)
 
 SRCS = \
 	  main \
 	  push \
 	  rotate \
 	  reverse_rotate \
-	  execute_operations \
+	  exec_pushswap_instruction \
 	  small_size_sort \
 	  big_size_sort \
 	  sort_three \
@@ -34,12 +34,14 @@ SRCS = \
 	  print_stack \
 	  get_current_total_cost \
 	  parsing_utils \
-	  swap
+	  swap \
+	  init_data
+		
 
 ALT_SRCS = \
 		   main_debug \
 		   tests \
-		   execute_operations_debug \
+		   exec_pushswap_instruction_debug \
 		   print_stack \
 		   push \
 		   swap \
@@ -86,7 +88,7 @@ make_libft:
 
 test5: all
 	@if [[ -z "$$(ls -A shuf5)" ]]; then \
-		cc -O3 shuf5.c libs/ft_free_arr.c -o shuf5; \
+		cc -g shuf5.c libs/ft_free_arr.c -o shuf5; \
 		./shuf5; \
 	else \
 		./shuf5; \
@@ -94,7 +96,7 @@ test5: all
 
 test8: all
 	@if [[ -z "$$(ls -A shuf8)" ]]; then \
-		cc -O3 shuf8.c libs/ft_free_arr.c -o shuf8; \
+		cc -g shuf8.c libs/ft_free_arr.c -o shuf8; \
 		./shuf8; \
 	else \
 		./shuf8; \

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 18:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/09 22:00:05 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:46:43 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ static void	push_to_b(t_stack *a, t_stack *b, t_tool *tool)
 		tool->do_rrr = 0;
 	if (tool->do_rr)
 		while (tool->do_rr--)
-			do_two_stacks_operation(a, b, rr, 1);
+			exec_pushswap_instruction(a, b, rr, 1);
 	else if (tool->do_rrr)
 		while (tool->do_rrr--)
-			do_two_stacks_operation(a, b, rrr, 1);
+			exec_pushswap_instruction(a, b, rrr, 1);
 	move_cheapest_to_top_of_a(a, b, tool);
 	move_cheapest_to_top_of_b(a, b, tool);
-	do_two_stacks_operation(a, b, pb, 0);
+	exec_pushswap_instruction(a, b, pb, 0);
 }
 
 static void	move_cheapest_to_top_of_a(t_stack *a, t_stack *b, t_tool *tool)
@@ -78,12 +78,12 @@ static void	move_cheapest_to_top_of_a(t_stack *a, t_stack *b, t_tool *tool)
 	if (get_index(a, tool->cheapest_to_top_a) >= normalized_last_index / 2)
 	{
 		while (arr[last_index] != tool->cheapest_to_top_a)
-			do_one_stack_operation(a, b, ra, tool);
+			exec_pushswap_instruction(a, b, ra, 0);
 		return ;
 	}
 	else
 		while (arr[last_index] != tool->cheapest_to_top_a)
-			do_one_stack_operation(a, b, rra, tool);
+			exec_pushswap_instruction(a, b, rra, 0);
 }
 
 static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool)
@@ -101,12 +101,12 @@ static void	move_cheapest_to_top_of_b(t_stack *a, t_stack *b, t_tool *tool)
 	if (get_index(b, tool->cheapest_to_top_b) >= normalized_last_index / 2)
 	{
 		while (arr[last_index] != tool->cheapest_to_top_b)
-			do_one_stack_operation(a, b, rb, tool);
+			exec_pushswap_instruction(a, b, rb, 0);
 		return ;
 	}
 	else
 		while (arr[last_index] != tool->cheapest_to_top_b)
-			do_one_stack_operation(a, b, rrb, tool);
+			exec_pushswap_instruction(a, b, rrb, 0);
 }
 
 static int	get_neighbor(t_stack *b, int value)

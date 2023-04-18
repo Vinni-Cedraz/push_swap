@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:49:52 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 15:34:52 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:55:13 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ void	sort_three(t_stack *a, t_stack *b, t_tool *tool)
 		return ;
 	if (arr[2] < arr[1] && arr[1] > arr[0] && arr[2] < arr[0])
 	{
-		do_one_stack_operation(a, b, rra, tool);
-		do_one_stack_operation(a, b, sa, tool);
+		exec_pushswap_instruction(a, b, rra, 0);
+		exec_pushswap_instruction(a, b, sa, 0);
 	}
 	else if (arr[2] > arr[1] && arr[1] < arr[0] && arr[2] < arr[0])
-		do_one_stack_operation(a, b, sa, tool);
+		exec_pushswap_instruction(a, b, sa, 0);
 	else if (arr[2] < arr[1] && arr[1] > arr[0] && arr[2] > arr[0])
-		do_one_stack_operation(a, b, rra, tool);
+		exec_pushswap_instruction(a, b, rra, 0);
 	else if (arr[2] > arr[1] && arr[1] < arr[0] && arr[2] > arr[0])
-		do_one_stack_operation(a, b, ra, tool);
+		exec_pushswap_instruction(a, b, ra, 0);
 	else if (arr[2] > arr[1] && arr[1] > arr[0] && arr[2] > arr[0])
 	{
-		do_one_stack_operation(a, b, sa, tool);
-		do_one_stack_operation(a, b, rra, tool);
+		exec_pushswap_instruction(a, b, sa, 0);
+		exec_pushswap_instruction(a, b, rra, 0);
 	}
 }

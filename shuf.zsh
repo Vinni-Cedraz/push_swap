@@ -12,7 +12,7 @@ if (( $size < 1 )); then
   exit 1
 fi
 if (( $size <= 3 )); then
-  max_operations=3
+  max_operations=2
 elif (( $size <= 5 )); then
   max_operations=12
 elif (( $size <= 100 )); then

@@ -6,10 +6,11 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 23:50:55 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/09 21:13:28 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:02:13 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libs/libft.h"
 #include "structs.h"
 
 int	has_duplicates(int *stack, int size)
@@ -24,7 +25,7 @@ int	has_duplicates(int *stack, int size)
 		while (j < size)
 		{
 			if (stack[i] == stack[j])
-				return (1);
+				return (ft_putstr_fd("Error: duplicate argument found", 2));
 			j++;
 		}
 		i++;

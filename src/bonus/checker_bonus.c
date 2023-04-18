@@ -6,51 +6,15 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:01:12 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/09 22:04:10 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:08:26 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap_bonus.h"
 
 static void	free_stuff(t_stack *a, t_stack *b, t_tool *tool, int is_error);
-
-// This function is the second part of the ft_check function.
-void	check_instructions_aux(t_stack *a, t_stack *b, char *line)
-{
-	if (line[2] == 'a')
-		rra(a);
-	else if (line[2] == 'b')
-		rrb(b);
-	else if (line[2] == 'r')
-		rrr(a, b);
-}
-
-// This function reads the line and checks if the command is valid.
-// If it is, it executes the command.
-int	check_instructions(t_stack *a, t_stack *b, char *line)
-{
-	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
-		sa(a);
-	else if (line[0] == 's' && line[1] == 'b' && line[2] == '\n')
-		sb(b);
-	else if (line[0] == 'p' && line[1] == 'a' && line[2] == '\n')
-		pa(a, b);
-	else if (line[0] == 'p' && line[1] == 'b' && line[2] == '\n')
-		pb(a, b);
-	else if (line[0] == 'r' && line[1] == 'a' && line[2] == '\n')
-		ra(a);
-	else if (line[0] == 'r' && line[1] == 'b' && line[2] == '\n')
-		rb(b);
-	else if (line[0] == 'r' && line[1] == 'r' && line[3] == '\n')
-		check_instructions_aux(a, b, line);
-	else if (line[0] == 'r' && line[1] == 'r' && line[2] == '\n')
-		rr(a, b);
-	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
-		ss(a, b);
-	else
-		return (0);
-	return (1);
-}
+static void	check_instructions_aux(t_stack *a, t_stack *b, char *line);
+static int	check_instructions(t_stack *a, t_stack *b, char *line);
 
 int	main(int argc, char **argv)
 {
@@ -75,10 +39,59 @@ int	main(int argc, char **argv)
 			free_stuff(a, b, tool, 1);
 	}
 	if ((!line && !is_sorted(a)))
-		ft_putstr_fd("KO", 1);
+		ft_putstr_fd("KO", 2);
 	else if (!line && is_sorted(a))
 		ft_putstr_fd("OK", 1);
 	free_stuff(a, b, tool, 0);
+}
+
+static int	check_instructions(t_stack *a, t_stack *b, char *line)
+{
+	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
+		sa(a, b);
+	else if (line[0] == 's' && line[1] == 'b' && line[2] == '\n')
+		sb(a, b);
+	else if (line[0] == 'p' && line[1] == 'a' && line[2] == '\n')
+		pa(a, b);
+	else if (line[0] == 'p' && line[1] == 'b' && line[2] == '\n')
+		pb(a, b);
+	else if (line[0] == 'r' && line[1] == 'a' && line[2] == '\n')
+		ra(a, b);
+	else if (line[0] == 'r' && line[1] == 'b' && line[2] == '\n')
+		rb(a, b);
+	else if (line[0] == 'r' && line[1] == 'r' && line[3] == '\n')
+		check_instructions_aux(a, b, line);
+	else if (line[0] == 'r' && line[1] == 'r' && line[2] == '\n')
+		rr(a, b);
+	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
+		ss(a, b);
+	else
+		return (0);
+	return (1);
+}
+
+static void	check_instructions_aux(t_stack *a, t_stack *b, char *line)
+{
+	if (line[2] == 'a')
+		rra(a, b);
+	else if (line[2] == 'b')
+		rrb(a, b);
+	else if (line[2] == 'r')
+		rrr(a, b);
+}
+
+size_t	hash_function(char *str)
+{
+	size_t	hash;
+
+	hash = 0;
+	while (*str)
+	{
+		hash = hash ^ *str;
+		hash = hash << 1;
+		str++;
+	}
+	return (hash);
 }
 
 static void	free_stuff(t_stack *a, t_stack *b, t_tool *tool, int is_error)
@@ -89,5 +102,5 @@ static void	free_stuff(t_stack *a, t_stack *b, t_tool *tool, int is_error)
 	free(b);
 	free(tool);
 	if (is_error)
-		ft_error();
+		exit(EXIT_FAILURE);
 }

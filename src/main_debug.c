@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/16 15:02:53 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:49:14 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,16 +99,16 @@ static void	push_back_toa(t_stack *a, t_stack *b, t_tool *tool)
 	lowest = get_smallest(b);
 	if (get_index(b, lowest) > b->last_index / 2)
 		while (b->stack[0] != lowest)
-			do_one_stack_operation(a, b, rb, tool);
+			exec_pushswap_instruction(a, b, rb, 0);
 	else if (get_index(b, lowest) <= b->last_index / 2)
 		while (b->stack[0] != lowest)
-			do_one_stack_operation(a, b, rrb, tool);
+			exec_pushswap_instruction(a, b, rrb, 0);
 	tool->which_stack = A;
 	lowest = get_smallest(a);
 	while (a->stack[a->last_index] != lowest)
-		do_one_stack_operation(a, b, rra, tool);
+		exec_pushswap_instruction(a, b, rra, 0);
 	while (b->last_index != -1)
-		do_two_stacks_operation(a, b, pa, 0);
+		exec_pushswap_instruction(a, b, pa, 0);
 	while (count--)
-		do_one_stack_operation(a, b, rra, tool);
+		exec_pushswap_instruction(a, b, rra, 0);
 }

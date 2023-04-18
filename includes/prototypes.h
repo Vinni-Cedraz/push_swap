@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/09 21:12:53 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:09:58 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,37 +15,31 @@
 
 # include "structs.h"
 
-typedef	void(t_funct1)(t_stack *stack, int is);
-typedef	void(t_funct2)(t_stack *a, t_stack *b, int is_rot_or_rev);
+typedef	void(t_instruction)(t_stack *a, t_stack *b, int is_rot_or_rev);
 
-// OPERATIONS //
+// PUSHSWAP_INSTRUCTIONS //
+
 // swap
-void	sa(t_stack *a, int is_ss);
-void	sb(t_stack *b, int is_ss);
+void	sa(t_stack *a, t_stack *b, int is_ss);
+void	sb(t_stack *a, t_stack *b, int is_ss);
 void	ss(t_stack *a, t_stack *b, int is_ss);
 // push
 void	pa(t_stack *a, t_stack *b, int is);
 void	pb(t_stack *a, t_stack *b, int is);
 // rotate
-void	ra(t_stack *a, int is_rr);
-void	rb(t_stack *b, int is_rr);
+void	ra(t_stack *a, t_stack *b, int is_rr);
+void	rb(t_stack *a, t_stack *b, int is_rr);
 void	rr(t_stack *a, t_stack *b, int is_rr);
 // reverse rotate
-void	rra(t_stack *a, int is_rrr);
-void	rrb(t_stack *b, int is_rrr);
+void	rra(t_stack *a, t_stack *b, int is_rrr);
+void	rrb(t_stack *a, t_stack *b, int is_rrr);
 void	rrr(t_stack *a, t_stack *b, int is_rrr);
-
-// OPERATION CALLERS;
-void	do_one_stack_operation(
+// wrapper for all instructions
+void	exec_pushswap_instruction(
 			t_stack *a,
 			t_stack *b,
-			t_funct1 f,
-			t_tool *tool);
-void	do_two_stacks_operation(
-			t_stack *a,
-			t_stack *b,
-			t_funct2 f,
-			int is_rot_or_rev);
+			t_instruction f,
+			int is_simultaneous);
 
 // COST CHECKERS;
 void	get_push_cost(int a_pos, int b_pos, t_tool *tool);
@@ -69,6 +63,7 @@ int		get_biggest(t_stack *stack);
 int		is_sorted(t_stack *a);
 
 // PARSING UTILS
+t_data	*init_data(int size, char **argv);
 int		has_duplicates(int *stack, int size);
 int		is_valid_number(char *str);
 

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:50:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/09 21:03:38 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/18 18:14:35 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,20 @@ typedef struct s_tool
 	int					*lowest_three;
 	int					last_cost;
 	int					tmp;
+	int					is_simultaneous_operation;
 }						t_tool;
+
+typedef struct s_data
+{
+	int					argc;
+	char				**argv;
+	t_tool				*tool;
+	t_stack				*a;
+	t_stack				*b;
+}						t_data;
+
+typedef struct s_cmd_table
+{
+}						t_cmd_table;
 
 #endif

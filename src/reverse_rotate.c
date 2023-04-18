@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:39:06 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 15:28:42 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:34:55 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 static void	reverse_rotate(t_stack *stack);
 
-void	rra(t_stack *a, int being_called_by_rrr)
+void	rra(t_stack *a, t_stack *b, int being_called_by_rrr)
 {
+	(void)b;
 	if (!being_called_by_rrr)
 		ft_putstr("rra\n");
 	reverse_rotate(a);
 }
 
-void	rrb(t_stack *b, int being_called_by_rrr)
+void	rrb(t_stack *a, t_stack *b, int being_called_by_rrr)
 {
+	(void)a;
 	if (!being_called_by_rrr)
 		ft_putstr("rrb\n");
 	reverse_rotate(b);
@@ -31,8 +33,8 @@ void	rrb(t_stack *b, int being_called_by_rrr)
 void	rrr(t_stack *a, t_stack *b, int is_rrr)
 {
 	ft_putstr("rrr\n");
-	rra(a, is_rrr);
-	rrb(b, is_rrr);
+	rra(a, b, is_rrr);
+	rrb(a, b, is_rrr);
 }
 
 static void	reverse_rotate(t_stack *stack)

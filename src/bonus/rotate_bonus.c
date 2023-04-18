@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:55:36 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/08 23:35:17 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:22:01 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 static void	rotate(t_stack *stack);
 
-void	ra(t_stack *a)
+void	ra(t_stack *a, t_stack *b)
 {
+	(void)b;
 	rotate(a);
 }
 
-void	rb(t_stack *b)
+void	rb(t_stack *a, t_stack *b)
 {
+	(void)a;
 	rotate(b);
 }
 
 void	rr(t_stack *a, t_stack *b)
 {
-	ra(a);
-	rb(b);
+	ra(a, b);
+	rb(a, b);
 }
 
 static void	rotate(t_stack *stack)
