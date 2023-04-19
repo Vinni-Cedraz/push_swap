@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:01:12 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/18 18:08:26 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/19 19:38:21 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,23 @@ int	main(int argc, char **argv)
 static int	check_instructions(t_stack *a, t_stack *b, char *line)
 {
 	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
-		sa(a, b);
+		sa(a, b, 0);
 	else if (line[0] == 's' && line[1] == 'b' && line[2] == '\n')
-		sb(a, b);
+		sb(a, b, 0);
 	else if (line[0] == 'p' && line[1] == 'a' && line[2] == '\n')
-		pa(a, b);
+		pa(a, b, 0);
 	else if (line[0] == 'p' && line[1] == 'b' && line[2] == '\n')
-		pb(a, b);
+		pb(a, b, 0);
 	else if (line[0] == 'r' && line[1] == 'a' && line[2] == '\n')
-		ra(a, b);
+		ra(a, b, 0);
 	else if (line[0] == 'r' && line[1] == 'b' && line[2] == '\n')
-		rb(a, b);
+		rb(a, b, 0);
 	else if (line[0] == 'r' && line[1] == 'r' && line[3] == '\n')
 		check_instructions_aux(a, b, line);
 	else if (line[0] == 'r' && line[1] == 'r' && line[2] == '\n')
-		rr(a, b);
+		rr(a, b, 0);
 	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
-		ss(a, b);
+		ss(a, b, 0);
 	else
 		return (0);
 	return (1);
@@ -73,11 +73,11 @@ static int	check_instructions(t_stack *a, t_stack *b, char *line)
 static void	check_instructions_aux(t_stack *a, t_stack *b, char *line)
 {
 	if (line[2] == 'a')
-		rra(a, b);
+		rra(a, b, 0);
 	else if (line[2] == 'b')
-		rrb(a, b);
+		rrb(a, b, 0);
 	else if (line[2] == 'r')
-		rrr(a, b);
+		rrr(a, b, 0);
 }
 
 size_t	hash_function(char *str)

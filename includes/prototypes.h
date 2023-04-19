@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:04:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/18 18:09:58 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/19 19:53:01 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define PROTOTYPES_H
 
 # include "structs.h"
-
-typedef	void(t_instruction)(t_stack *a, t_stack *b, int is_rot_or_rev);
 
 // PUSHSWAP_INSTRUCTIONS //
 

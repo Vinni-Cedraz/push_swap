@@ -6,30 +6,33 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:55:36 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/18 15:22:01 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:04:48 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libs/libft.h"
 #include "structs.h"
 
 static void	rotate(t_stack *stack);
 
-void	ra(t_stack *a, t_stack *b)
+void	ra(t_stack *a, t_stack *b, int nil)
 {
 	(void)b;
+	(void)nil;
 	rotate(a);
 }
 
-void	rb(t_stack *a, t_stack *b)
+void	rb(t_stack *a, t_stack *b, int nil)
 {
 	(void)a;
+	(void)nil;
 	rotate(b);
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b, int is_rr)
 {
-	ra(a, b);
-	rb(a, b);
+	ra(a, b, is_rr);
+	rb(a, b, is_rr);
 }
 
 static void	rotate(t_stack *stack)

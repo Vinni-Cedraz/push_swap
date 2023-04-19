@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:50:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/18 18:14:35 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:09:02 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "sys_headers.h"
 
-typedef struct s_st
+typedef struct s_stack
 {
 	int					*stack;
 	int					last_index;
@@ -65,8 +65,9 @@ typedef struct s_data
 	t_stack				*b;
 }						t_data;
 
-typedef struct s_cmd_table
-{
-}						t_cmd_table;
+typedef void			(*t_instruction)(
+			t_stack *a,
+			t_stack *b,
+			int is_rot_or_rev);
 
 #endif

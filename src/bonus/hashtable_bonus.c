@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_bonus.c                                       :+:      :+:    :+:   */
+/*   hash_table_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/28 12:55:21 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/19 20:05:24 by vcedraz-         ###   ########.fr       */
+/*   Created: 2023/04/19 19:08:45 by vcedraz-          #+#    #+#             */
+/*   Updated: 2023/04/19 19:30:29 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libs/libft.h"
-#include "structs.h"
+#include "pushswap_bonus.h"
 
-void	pa(t_stack *a, t_stack *b, int nil)
+size_t	hash_function(char *str)
 {
-	(void)nil;
-	if (b->last_index < 0)
-		return ;
-	a->stack[++a->last_index] = b->stack[b->last_index--];
+	size_t	hash;
+
+	hash = 0;
+	while (*str)
+	{
+		hash = hash ^ *str;
+		hash = hash << 1;
+		str++;
+	}
+	return (hash);
 }
 
-void	pb(t_stack *a, t_stack *b, int nil)
+t_instruction	*init_cmd_table(void)
 {
-	(void)nil;
-	if (a->last_index < 0)
-		return ;
-	b->stack[++b->last_index] = a->stack[a->last_index--];
+	t_instruction	*cmd_table;
+
+	cmd_table = ft_calloc(sizeof(t_instruction), 12);
+	return (cmd_table);
 }
