@@ -63,6 +63,7 @@ BSRCS = \
 		swap_bonus \
 		checker_bonus \
 		utils_bonus \
+		hashtable_bonus \
 		has_duplicates_bonus
 
 SRCS_PATH = src/

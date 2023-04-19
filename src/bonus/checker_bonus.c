@@ -6,26 +6,28 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:01:12 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/19 19:38:21 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/19 20:37:41 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap_bonus.h"
 
 static void	free_stuff(t_stack *a, t_stack *b, t_tool *tool, int is_error);
-static void	check_instructions_aux(t_stack *a, t_stack *b, char *line);
-static int	check_instructions(t_stack *a, t_stack *b, char *line);
+static int	call_pushswap_instructions(t_stack *a, t_stack *b, char *line,
+				t_instruction *hash_table);
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
-	t_stack	*b;
-	char	*line;
-	t_tool	*tool;
+	t_stack			*a;
+	t_stack			*b;
+	char			*line;
+	t_tool			*tool;
+	t_instruction	*hash_table;
 
 	a = malloc(sizeof(t_stack));
 	b = malloc(sizeof(t_stack));
 	tool = malloc(sizeof(t_tool));
+	hash_table = create_hash_table();
 	create_stacks(a, b, tool, argc - 1);
 	read_args(argv + 1, a, argc - 2);
 	if (!a || has_duplicates(a->stack, argc - 1))
@@ -35,7 +37,7 @@ int	main(int argc, char **argv)
 		line = ft_gnl(0);
 		if (!line)
 			break ;
-		if (!check_instructions(a, b, line))
+		if (!call_pushswap_instructions(a, b, line, hash_table))
 			free_stuff(a, b, tool, 1);
 	}
 	if ((!line && !is_sorted(a)))
@@ -45,53 +47,17 @@ int	main(int argc, char **argv)
 	free_stuff(a, b, tool, 0);
 }
 
-static int	check_instructions(t_stack *a, t_stack *b, char *line)
+static int	call_pushswap_instructions(t_stack *a,
+				t_stack *b,
+				char *line,
+				t_instruction *hash_table)
 {
-	if (line[0] == 's' && line[1] == 'a' && line[2] == '\n')
-		sa(a, b, 0);
-	else if (line[0] == 's' && line[1] == 'b' && line[2] == '\n')
-		sb(a, b, 0);
-	else if (line[0] == 'p' && line[1] == 'a' && line[2] == '\n')
-		pa(a, b, 0);
-	else if (line[0] == 'p' && line[1] == 'b' && line[2] == '\n')
-		pb(a, b, 0);
-	else if (line[0] == 'r' && line[1] == 'a' && line[2] == '\n')
-		ra(a, b, 0);
-	else if (line[0] == 'r' && line[1] == 'b' && line[2] == '\n')
-		rb(a, b, 0);
-	else if (line[0] == 'r' && line[1] == 'r' && line[3] == '\n')
-		check_instructions_aux(a, b, line);
-	else if (line[0] == 'r' && line[1] == 'r' && line[2] == '\n')
-		rr(a, b, 0);
-	else if (line[0] == 's' && line[1] == 's' && line[2] == '\n')
-		ss(a, b, 0);
-	else
-		return (0);
-	return (1);
-}
-
-static void	check_instructions_aux(t_stack *a, t_stack *b, char *line)
-{
-	if (line[2] == 'a')
-		rra(a, b, 0);
-	else if (line[2] == 'b')
-		rrb(a, b, 0);
-	else if (line[2] == 'r')
-		rrr(a, b, 0);
-}
-
-size_t	hash_function(char *str)
-{
-	size_t	hash;
-
-	hash = 0;
-	while (*str)
+	if (hash_table[hash_function(line)])
 	{
-		hash = hash ^ *str;
-		hash = hash << 1;
-		str++;
+		hash_table[hash_function(line)](a, b, 0);
+		return (1);
 	}
-	return (hash);
+	return (0);
 }
 
 static void	free_stuff(t_stack *a, t_stack *b, t_tool *tool, int is_error)
