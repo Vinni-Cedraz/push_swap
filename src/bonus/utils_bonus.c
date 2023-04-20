@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 22:00:31 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/18 15:23:49 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/20 01:35:56 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	read_args(char **argv, t_stack *a, int last_index)
 	j = -1;
 	while (++j <= last_index)
 		if (!is_valid_number(argv[j]))
-			ft_error("some character found is not a number");
+			ft_error("some argument is not a number");
 	j = 0;
 	stack = a->stack;
 	a->last_index = i;

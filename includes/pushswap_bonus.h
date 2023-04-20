@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 22:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/19 20:31:11 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/20 11:46:06 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int				is_sorted(t_stack *a);
 int				is_valid_number(char *str);
 int				has_duplicates(int *stack, int size);
 t_instruction	*create_hash_table(void);
-size_t			hash_function(char *str);
+unsigned int	hash_function(char *str);
 
 #endif
