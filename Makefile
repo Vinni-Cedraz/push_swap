@@ -16,8 +16,8 @@ LIBFT_PATH = libs/
 INC = -Iincludes/ -I$(LIBFT_PATH)
 EXECUTABLE = push_swap
 ALT_EXECUTABLE = push_swap_debug
-BONUS_EXECUTABLE = checker_bonus
-CFLAGS = -Wall -Wextra -Werror -g $(INC)
+BONUS_EXECUTABLE = checker
+CFLAGS = -Wall -Wextra -Werror -O3 $(INC)
 
 SRCS = \
 	  main \
@@ -66,11 +66,11 @@ BSRCS = \
 		hashtable_bonus \
 		has_duplicates_bonus
 
-SRCS_PATH = src/
-BSRCS_PATH = src/bonus/
+SRCS_PATH = srcs/
+BSRCS_PATH = srcs/bonus/
 OBJS_PATH = objs/
 BOBJS_PATH = objs/bobjs/
-ALT_SRCS_PATH = src/
+ALT_SRCS_PATH = srcs/
 ALT_OBJS_PATH = alt_objs/
 LIBFT_OBJS_PATH = $(LIBFT_PATH)objs/
 
@@ -87,38 +87,21 @@ all: $(NAME)
 make_libft:
 	@make -C $(LIBFT_PATH) --no-print-directory
 
-test5: all
-	@if [[ -z "$$(ls -A shuf5)" ]]; then \
-		cc -g shuf5.c libs/ft_free_arr.c -o shuf5; \
-		./shuf5; \
-	else \
-		./shuf5; \
-	fi
-
-test8: all
-	@if [[ -z "$$(ls -A shuf8)" ]]; then \
-		cc -g shuf8.c libs/ft_free_arr.c -o shuf8; \
-		./shuf8; \
-	else \
-		./shuf8; \
-	fi
-
-
 $(NAME): $(OBJS) make_libft
 	@printf "\n$(YELLOW)Linking FDF Objects to Library...$(DEF_COLOR)\n";
 	@for file in $(MOD_OBJ); do \
-		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)                       \r"; \
+		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)                            \r"; \
 		ar -rsc $(NAME) $$file; \
 	done
 	@for file in $(SRCS); do \
 		if [[ -z "$$(nm $(NAME) | grep $${file}.o:)" ]]; then \
 		ar -rsc $(NAME) $(OBJS_PATH)$$file.o; \
-		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)                        \r"; \
+		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME)$(DEF_COLOR)                            \r"; \
 	fi; \
 	done
 	@printf "$(CYAN)Creating $(EXECUTABLE)$(DEF_COLOR)                                                       \n";\
 	$(CC) $(CFLAGS) $(NAME) $(LIBFT_PATH)libft.a -o $(EXECUTABLE);
-	@printf "$(WHITE)Created Library $(RED)$(NAME)$(DEF_COLOR)                                             \n";
+	@printf "$(WHITE)Created Library $(RED)$(NAME)$(DEF_COLOR)                                             	 \n";
 	@printf "\njust execute $(GREEN)./$(EXECUTABLE) $(GRAY)to run the program\n$(DEF_COLOR)                  \n";
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
@@ -228,7 +211,7 @@ $(BOBJS_PATH)%.o: $(BSRCS_PATH)%.c
 BONUS_LOOP: 
 	@for file in $(BSRCS); do \
 		if [ $(BSRCS_PATH)$$file.c -nt $(BOBJS_PATH)$$file.o ]; then \
-			printf "$(GREEN)[checker_bonus]$(CYAN) Compiling $(WHITE)$$file.c$(DEF_COLOR)\n"; \
+			printf "$(GREEN)[checker]$(CYAN) Compiling $(WHITE)$$file.c$(DEF_COLOR)\n"; \
 			printf "$(CC) $(CFLAGS) -c $(BONUS_SRCS_PATH)$$file.c -o $(BOBJS_PATH)$$file.o\n"; \
 			$(CC) $(CFLAGS) -c $(BSRCS_PATH)$$file.c -o $(BOBJS_PATH)$$file.o; \
 			printf "$(WHITE)$$file.c$(GREEN) OK$(DEF_COLOR)\n\n"; \
