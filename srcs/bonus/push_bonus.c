@@ -6,12 +6,11 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 12:55:21 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/19 20:05:24 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/22 10:34:56 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libs/libft.h"
-#include "structs.h"
+#include "pushswap_bonus.h"
 
 void	pa(t_stack *a, t_stack *b, int nil)
 {

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 20:19:50 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/16 15:08:21 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/22 10:09:42 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	is_sorted(t_stack *a)
 	arr = a->stack;
 	while (i < a->last_index)
 	{
-		if (arr[i] < arr[i + 1])
+		if (arr[i] <= arr[i + 1])
 			return (0);
 		i++;
 	}

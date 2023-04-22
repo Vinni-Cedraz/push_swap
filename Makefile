@@ -17,7 +17,7 @@ INC = -Iincludes/ -I$(LIBFT_PATH)
 EXECUTABLE = push_swap
 ALT_EXECUTABLE = push_swap_debug
 BONUS_EXECUTABLE = checker
-CFLAGS = -Wall -Wextra -Werror -O3 $(INC)
+CFLAGS = -Wall -Wextra -Werror -g $(INC)
 
 SRCS = \
 	  main \

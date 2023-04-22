@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 18:49:56 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/09 23:04:04 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/22 11:11:08 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ char	*ft_gnl(int fd)
 		line.wth_all = reading_function(fd);
 	else
 		line.wth_all = ft_strjoin(aftbrk[fd], reading_function(fd));
-	line.len = ft_strlen(line.wth_all) + 1;
-	if (line.len - 1)
+	line.len = ft_strlen(line.wth_all);
+	if (line.len)
 	{
-		aftbrk[fd] = linebreaker(line.wth_all, line.len, 1);
-		line.bfr_brk = linebreaker(line.wth_all, line.len, 0);
+		aftbrk[fd] = linebreaker(line.wth_all, line.len + 1, 1);
+		line.bfr_brk = linebreaker(line.wth_all, line.len + 1, 0);
 	}
 	if (!(line.wth_all == line.bfr_brk))
 		free(line.wth_all);

@@ -6,12 +6,11 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:36:48 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/19 20:03:37 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/22 10:35:33 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libs/libft.h"
-#include "structs.h"
+#include "pushswap_bonus.h"
 
 void	sa(t_stack *a, t_stack *b, int nil)
 {

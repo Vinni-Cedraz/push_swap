@@ -6,12 +6,11 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 14:39:06 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/19 20:05:34 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/22 10:35:10 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libs/libft.h"
-#include "structs.h"
+#include "pushswap_bonus.h"
 
 static void	reverse_rotate(t_stack *stack);
 
