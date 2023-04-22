@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 22:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/22 10:47:00 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/22 13:26:55 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,12 @@ typedef struct s_tool
 	int					do_rr;
 	int					do_rrr;
 	int					*lowest_three;
-	t_instruction		**hash_table;
+	t_instruction		*instruction_table;
 	char				*line;
 	int					last_cost;
 	int					tmp;
 	int					is_simultaneous_operation;
+	int					invalid_instruction;
 }						t_tool;
 
 typedef struct s_data
@@ -95,6 +96,6 @@ int						is_sorted(t_stack *a);
 int						is_valid_number(char *str);
 int						has_duplicates(int *stack, int size);
 t_instruction			*create_hash_table(void);
-unsigned int			hash_function(char *str);
+size_t					hash_function(char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:11 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/16 15:11:01 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/22 12:08:33 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,9 +136,9 @@ void		*ft_calloc(size_t count, size_t size);
 // of modifying the existing one. The other difference is that it uses memmory
 // allocation to create the new string and return its address:
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-// ft_strtrim receives a string and a set of chars, and it returns a new string
-// after every char present in string set from the beggining and end of the
-// string s:
+// Allocates (with malloc(3)) and returns a copy of
+// ’s1’ with the characters specified in ’set’ removed
+// from the beginning and the end of the string.
 char		*ft_strtrim(char const *s1, char const *set);
 // ft_split receives a string and a set of chars, and it returns an array of
 // strings, each one being a substring of s1 that is delimited by a char c:
