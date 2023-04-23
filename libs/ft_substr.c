@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/22 18:51:28 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/01/23 13:02:45 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/23 12:33:41 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 typedef unsigned int	t_uint;
 typedef unsigned char	t_uc;
 
-static void				*aux_ft_memcpy(void *dst, const void *src, size_t n);
-static void				*aux_ft_calloc(size_t nmemb, size_t size);
 static size_t			aux_ft_strlen(const char *str);
+static void				*aux_ft_calloc(size_t nmemb, size_t size);
+static void				*aux_ft_memcpy(void *dst, const void *src, size_t n);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

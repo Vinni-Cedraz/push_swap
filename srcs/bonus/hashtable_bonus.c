@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 19:08:45 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/22 17:13:34 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/23 13:05:19 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ t_instruction	*create_hash_table(void)
 	t_instruction	*cmd_table;
 
 	cmd_table = ft_calloc(sizeof(t_instruction), 2000);
-	cmd_table[hash_function("pa\n")] = &pa;
-	cmd_table[hash_function("pb\n")] = &pb;
-	cmd_table[hash_function("sa\n")] = &sa;
-	cmd_table[hash_function("sb\n")] = &sb;
-	cmd_table[hash_function("ss\n")] = &ss;
-	cmd_table[hash_function("ra\n")] = &ra;
-	cmd_table[hash_function("rb\n")] = &rb;
-	cmd_table[hash_function("rr\n")] = &rr;
-	cmd_table[hash_function("rra\n")] = &rra;
-	cmd_table[hash_function("rrb\n")] = &rrb;
-	cmd_table[hash_function("rrr\n")] = &rrr;
+	cmd_table[hash_function("pa")] = &pa;
+	cmd_table[hash_function("pb")] = &pb;
+	cmd_table[hash_function("sa")] = &sa;
+	cmd_table[hash_function("sb")] = &sb;
+	cmd_table[hash_function("ss")] = &ss;
+	cmd_table[hash_function("ra")] = &ra;
+	cmd_table[hash_function("rb")] = &rb;
+	cmd_table[hash_function("rr")] = &rr;
+	cmd_table[hash_function("rra")] = &rra;
+	cmd_table[hash_function("rrb")] = &rrb;
+	cmd_table[hash_function("rrr")] = &rrr;
 	return (cmd_table);
 }
 
@@ -38,7 +38,7 @@ size_t	hash_function(char *end)
 
 	hash = 5381;
 	start = end;
-	while (*end != '\n')
+	while (*end)
 	{
 		hash = ((hash << 5) + hash) + *end;
 		end++;
@@ -48,9 +48,9 @@ size_t	hash_function(char *end)
 	return (hash & 0b11111111111);
 }
 
-//
 // #include <assert.h>
 // #include <stdio.h>
+// #include <string.h>
 // void next_permutation(char str[]) {
 //     if (str[1] < 'z') {
 //         str[1]++;
@@ -62,7 +62,6 @@ size_t	hash_function(char *end)
 //             str[0] = 'a';
 //         }
 //     }
-//     str[2] = '\n';
 // }
 //
 // void next_permutation_3(char str[]) {
@@ -81,7 +80,6 @@ size_t	hash_function(char *end)
 //             }
 //         }
 //     }
-//     str[3] = '\n';
 // }
 //
 // int main(void) {
@@ -99,14 +97,14 @@ size_t	hash_function(char *end)
 //     while (str[0] != 'z'|| str[1] != 'z' || str[2] != 'z') {
 // 		counter++;
 //         next_permutation_3(str);
-// 		printf("%s", str);
+// 		printf("%s\n", str);
 //         fprintf(fp, "%zu\n", hash_function(str));
-// 		if (strcmp(str, "rra\n") || strcmp(str, "rrb\n") || strcmp(str, "rrr\n")
-// 				|| strcmp(str, "pa\b") || strcmp(str, "pb\n") 
-// 				|| strcmp(str, sa\n")
-// 				|| strcmp(str, "sb\b") || strcmp(str, "ss\n") 
-//				|| strcmp(str, ra\n")
-// 				|| strcmp(str, "rb\b") || strcmp(str, "rr\n"))
+// 		if (strcmp(str, "rra") || strcmp(str, "rrb") || strcmp(str, "rrr")
+// 				|| strcmp(str, "pa") || strcmp(str, "pb")
+// 				|| strcmp(str, "sa")
+// 				|| strcmp(str, "sb") || strcmp(str, "ss")
+// 				|| strcmp(str, "ra")
+// 				|| strcmp(str, "rb") || strcmp(str, "rr"))
 // 			continue ;
 //         if (hash_function("pa") == hash_function(str)) break ;
 //         if (hash_function("pb") == hash_function(str)) break ;
@@ -116,9 +114,9 @@ size_t	hash_function(char *end)
 //         if (hash_function("ra") == hash_function(str)) break ;
 //         if (hash_function("rb") == hash_function(str)) break ;
 //         if (hash_function("rr") == hash_function(str)) break ;
-//         if (hash_function("rra\n") == hash_function(str)) break ;
-//         if (hash_function("rrb\n") == hash_function(str)) break ;
-//         if (hash_function("rrr\n") == hash_function(str)) break ;
+//         if (hash_function("rra") == hash_function(str)) break ;
+//         if (hash_function("rrb") == hash_function(str)) break ;
+//         if (hash_function("rrr") == hash_function(str)) break ;
 // 	}
 //
 //     printf("%s\n", str);
