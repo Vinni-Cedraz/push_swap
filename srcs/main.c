@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 17:48:44 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/22 10:14:05 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/27 21:21:14 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,16 +49,16 @@ static int	read_args(t_stack *a, t_data *d)
 	j = -1;
 	while (++j <= d->argc - 2)
 		if (!is_valid_number(d->argv[j]))
-			return (ft_putstr_fd("Error: non-numeric char found", 2), 0);
+			return (ft_error());
 	j = 0;
 	stack = a->stack;
 	a->last_index = i;
 	while (i + 1)
 	{
 		if (ft_atol(d->argv[i]) > __INT_MAX__)
-			return (ft_putstr_fd("Error: a number is too big", 2), 0);
+			return (ft_error());
 		if (ft_atol(d->argv[i]) < -__INT_MAX__)
-			return (ft_putstr_fd("Error: a number is too small", 2), 0);
+			return (ft_error());
 		stack[j] = ft_atol(d->argv[i]);
 		i--;
 		j++;

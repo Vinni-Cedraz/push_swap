@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:01:12 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/25 10:42:52 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/27 21:27:50 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	main(int argc, char **argv)
 		free_stuff_exit(a, b, tool, 1);
 	read_instructions(a, b, tool);
 	if (is_sorted(a))
-		ft_putstr_fd("OK", 1);
+		ft_putstr_fd("OK\n", 1);
 	else
-		ft_putstr_fd("KO", 2);
+		ft_putstr_fd("KO\n", 1);
 	free_stuff_exit(a, b, tool, 0);
 }
 
@@ -59,7 +59,7 @@ static void	read_instructions(t_stack *a, t_stack *b, t_tool *tool)
 	}
 	if (tool->invalid_instruction)
 	{
-		ft_putstr_fd("Error: invalid instruction", 2);
+		ft_error();
 		free_stuff_exit(a, b, tool, 1);
 	}
 }

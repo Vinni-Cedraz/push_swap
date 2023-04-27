@@ -6,14 +6,14 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 22:01:27 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/25 10:42:41 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:56:36 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSHSWAP_BONUS_H
 # define PUSHSWAP_BONUS_H
 
-#define WHITESPACES "\t\n\v\f\r "
+# define WHITESPACES "\t\n\v\f\r "
 
 # include "../libs/libft.h"
 

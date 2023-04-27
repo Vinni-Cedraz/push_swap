@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:30:42 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/18 18:07:14 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/27 21:26:05 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ int	has_duplicates(int *stack, int size)
 		while (j < size)
 		{
 			if (stack[i] == stack[j])
-				return (ft_putstr_fd("Error: duplicate argument found", 2));
+			{
+				ft_error();
+				return (1);
+			}
 			j++;
 		}
 		i++;
