@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/04/15 14:34:05 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/04/27 13:53:25 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,63 +107,63 @@ ft_lstshift \
 	
 
 PRNTF_SRCS = ft_putchar \
-               ft_calloc \
-                ft_strlen \
-                 ft_memset \
-               ft_itoa_base \
-		   		     ft_itoa \
-			       ft_ishexup \
-				    ft_strlcat \
-				      ft_strdup \
-					     ft_swap \
+             ft_calloc \
+             ft_strlen \
+             ft_memset \
+             ft_itoa_base \
+		   	 ft_itoa \
+			 ft_ishexup \
+			 ft_strlcat \
+			 ft_strdup \
+			 ft_swap \
 
 
 FDF_SRCS = ft_strnstr \
-			   ft_swap \
-		    ft_free_arr \
-		 ft_free_t_split \
-			 ft_atoi_base \
+		   ft_swap \
+		   ft_free_arr \
+		   ft_free_t_split \
+		   ft_atoi_base \
 		   ft_word_counter \
-				  ft_strlen \
-					  ft_gnl \
-				  ft_ishexlow \
-					 ft_calloc \
-					    ft_atoi \
-					   ft_memchr \
-					     ft_split \
-						ft_strjoin \
-						  ft_memcpy \
-						   ft_strdup \
-						    ft_putstr \
+		   ft_strlen \
+		   ft_gnl \
+		   ft_ishexlow \
+		   ft_calloc \
+		   ft_atoi \
+		   ft_memchr \
+		   ft_split \
+		   ft_strjoin \
+		   ft_memcpy \
+		   ft_strdup \
+		   ft_putstr \
 
-FDF_SRCS_BONUS =  ft_strnstr \
-					  ft_swap \
-			  ft_free_arr_size \
-				ft_free_t_split \
-					ft_atoi_base \
-				  ft_word_counter \
-						 ft_strlen \
-				             ft_gnl \
-						 ft_ishexlow \
-						   ft_ishexup \
-							 ft_calloc \
-							    ft_atoi \
-							   ft_memchr \
-								 ft_split \
-							    ft_strjoin \
-								  ft_memcpy \
-								   ft_strdup \
-								   ft_strtrim \
-								     ft_substr \
-									  ft_putstr \
-									   ft_strchr \
-									    ft_lstnew \
-								   	ft_lstadd_back \
-								         ft_lstlast \
-							 ft_lst_make_it_circular \
-							 	  ft_lstcircular_free \
-							                ft_lstfree \
-											 ft_memmove \
+FDF_SRCS_BONUS = ft_strnstr \
+				 ft_swap \
+				 ft_free_arr_size \
+				 ft_free_t_split \
+				 ft_atoi_base \
+				 ft_word_counter \
+				 ft_strlen \
+				 ft_gnl \
+				 ft_ishexlow \
+				 ft_ishexup \
+				 ft_calloc \
+				 ft_atoi \
+				 ft_memchr \
+				 ft_split \
+				 ft_strjoin \
+				 ft_memcpy \
+				 ft_strdup \
+				 ft_strtrim \
+				 ft_substr \
+				 ft_putstr \
+				 ft_strchr \
+				 ft_lstnew \
+				 ft_lstadd_back \
+				 ft_lstlast \
+				 ft_lst_make_it_circular \
+				 ft_lstcircular_free \
+				 ft_lstfree \
+				 ft_memmove \
 
 ## OBJS VARIABLES ##
 
