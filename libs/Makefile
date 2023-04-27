@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/04/27 13:53:25 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/04/27 16:03:09 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ NAME_BONUS = libft_bonus.a
 NAME_PRNTF = ../libftprintf.a
 NAME_FDF = srcs_to_fdf.a
 NAME_FDF_BONUS = srcs_to_fdf_bonus.a
+NAME_PUSHSWAP = srcs_to_push_swap.a
 CFLAGS = -Wall -Werror -Wextra -O3
 AR = ar -rs
 RM = rm -f
@@ -25,6 +26,9 @@ OBJSB_PATH = ./objs_bonus/
 PRNTF_OBJS_PATH = ./objs_printf/
 FDF_OBJS_PATH = ./objs_fdf/
 FDF_OBJSB_PATH = ./objs_fdf_bonus/
+PUSHSWAP_OBJS_PATH = ./objs_push_swap/
+
+## COLORS
 DEF_COLOR = \033[0;39m
 GRAY = \033[0;37m
 RED = \033[0;91m
@@ -165,6 +169,26 @@ FDF_SRCS_BONUS = ft_strnstr \
 				 ft_lstfree \
 				 ft_memmove \
 
+PUSHSWAP_SRCS = \
+				ft_putstr_fd \
+				ft_putchar_fd \
+				ft_error \
+				ft_atol \
+				ft_putchar \
+				ft_putstr \
+				ft_abs \
+				ft_calloc \
+				ft_bzero \
+				ft_iswhitespace \
+				ft_isdigit \
+				ft_gnl \
+				ft_substr \
+				ft_strtrim \
+				ft_strjoin \
+				ft_strlen \
+				ft_memchr \
+				ft_memcpy \
+
 ## OBJS VARIABLES ##
 
 OBJS = $(patsubst %, $(OBJS_PATH)%.o, $(SRCS))
@@ -172,11 +196,13 @@ OBJSB = $(patsubst %, $(OBJSB_PATH)%.o, $(BSRCS))
 OBJS_PRNTF = $(patsubst %, $(PRNTF_OBJS_PATH)%.o, $(PRNTF_SRCS))
 OBJS_FDF = $(patsubst %, $(FDF_OBJS_PATH)%.o, $(FDF_SRCS))
 OBJSB_FDF = $(patsubst %, $(FDF_OBJSB_PATH)%.o, $(FDF_SRCS_BONUS))
+OBJS_PUSHSWAP = $(patsubst %, $(PUSHSWAP_OBJS_PATH)%.o, $(PUSHSWAP_SRCS))
 MOD_OBJ = $(shell find . -path "./objs/*.o" -type f -newer $(NAME))
 MOD_OBJB = $(shell find . -path "./objs_bonus/*.o" -type f -newer $(NAME_BONUS))
 MOD_OBJ_PRNTF = $(shell find . -path "./objs_printf/*.o" -type f -newer $(NAME_PRNTF))
 MOD_OBJ_FDF = $(shell find . -path "./objs_fdf/*.o" -type f -newer $(NAME_FDF))
 MOD_OBJB_FDF = $(shell find . -path "./objs_fdf_bonus/*.o" -type f -newer $(NAME_FDF_BONUS))
+MOD_OBJ_PUSHSWAP = $(shell find . -path "./objs_push_swap/*.o" -type f -newer $(NAME_PUSHSWAP))
 
 ## COMPILATION RULES ##
 
@@ -188,9 +214,11 @@ srcs_to_fdf_bonus: $(NAME_FDF_BONUS)
 
 srcs_to_fdf : $(NAME_FDF)
 
+srcs_to_push_swap : $(NAME_PUSHSWAP)
+
 bonus : $(NAME_BONUS)
 
-all_all: all srcs_to_printf srcs_to_fdf bonus
+all_all: all srcs_to_printf srcs_to_fdf bonus srcs_to_push_swap
 
 $(NAME) : $(OBJS) 
 	@printf "\n$(YELLOW)Linking Mandatory Objects to Library...$(DEF_COLOR)\n";
@@ -219,20 +247,6 @@ $(NAME_PRNTF) : $(OBJS_PRNTF)
 	fi; \
 	done
 	@printf "$(WHITE)Created Library $(RED)libftprintf.a$(DEF_COLOR)                                                                           \n"; \
-
-$(NAME_FDF) : $(OBJS_FDF) 
-	@printf "\n$(YELLOW)Linking fdf Objects From libft to Library...$(DEF_COLOR)\n";
-	@for file in $(MOD_OBJ_FDF); do \
-		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME_FDF)$(DEF_COLOR)                                                           \r"; \
-		ar -rsc $(NAME_FDF) $$file; \
-	done
-	@for file in $(FDF_SRCS); do \
-	if [[ -z "$$(nm $(NAME_FDF) | grep $${file}.o:)" ]]; then \
-		printf "$(CYAN)Linking $(WHITE)$$file.o $(GRAY)to $(RED)$(NAME_FDF)$(DEF_COLOR)                                                          \r"; \
-		ar -rsc $(NAME_FDF) $(FDF_OBJS_PATH)$$file.o; \
-	fi; \
-	done
-	@printf "$(WHITE)Created Library $(RED)$(NAME_PRNTF)$(DEF_COLOR)                                                                              \n"; \
 
 $(NAME_FDF_BONUS) : $(OBJSB_FDF)
 	@printf "\n$(YELLOW)Linking fdf Bonus Objects From libft to Library...$(DEF_COLOR)\n";
@@ -267,6 +281,34 @@ $(NAME_BONUS) : $(NAME) $(OBJSB)
 	done
 	@printf "$(WHITE)Created Library $(RED)$(NAME_BONUS)$(DEF_COLOR)                                                                                \n"; \
 
+$(NAME_FDF) : $(OBJS_FDF) 
+	@printf "\n$(YELLOW)Linking fdf Objects From libft to Library...$(DEF_COLOR)\n";
+	@for file in $(MOD_OBJ_FDF); do \
+		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME_FDF)$(DEF_COLOR)                                                           \r"; \
+		ar -rsc $(NAME_FDF) $$file; \
+	done
+	@for file in $(FDF_SRCS); do \
+	if [[ -z "$$(nm $(NAME_FDF) | grep $${file}.o:)" ]]; then \
+		printf "$(CYAN)Linking $(WHITE)$$file.o $(GRAY)to $(RED)$(NAME_FDF)$(DEF_COLOR)                                                          \r"; \
+		ar -rsc $(NAME_FDF) $(FDF_OBJS_PATH)$$file.o; \
+	fi; \
+	done
+	@printf "$(WHITE)Created Library $(RED)$(NAME_PRNTF)$(DEF_COLOR)                                                                              \n"; \
+
+$(NAME_PUSHSWAP): $(OBJS_PUSHSWAP)
+	@for file in $(MOD_OBJ_PUSHSWAP); do \
+		printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME_PUSHSWAP)$(DEF_COLOR)                                                          \r"; \
+		ar -rsc $(NAME_PUSHSWAP) $$file; \
+	done
+	@for file in $(PUSHSWAP_SRCS); do \
+	if [[ -z "$$(nm $(NAME_PUSHSWAP) | grep $${file}.o:)" ]]; then \
+			ar -rsc $(NAME_PUSHSWAP) $(PUSHSWAP_OBJS_PATH)$$file.o; \
+			printf "$(CYAN)Linking $(WHITE)$$file $(GRAY)to $(RED)$(NAME_PUSHSWAP)$(DEF_COLOR)                                                       \r"; \
+			printf "$(WHITE)$$file $(GREEN)OK$(DEF_COLOR)																							 \r"; \
+	fi; \
+	done
+	@printf "$(WHITE)Created Library $(RED)$(NAME_PUSHSWAP)$(DEF_COLOR)                                                                           	 \n"; \
+
 $(OBJS_PATH)%.o : %.c
 	@printf "\n$(YELLOW)Compiling All libft Sources...$(DEF_COLOR)\n\n"
 	@make LIBFT_LOOP --no-print-directory
@@ -286,6 +328,21 @@ $(FDF_OBJS_PATH)%.o : %.c
 $(FDF_OBJSB_PATH)%.o : %.c
 	@printf "\n$(YELLOW)Compiling Bonus libft Sources... $(DEF_COLOR)\n\n"
 	@make FDF_BONUS_LOOP --no-print-directory
+
+$(PUSHSWAP_OBJS_PATH)%.o : %.c
+	@printf "\n$(YELLOW)Compiling push_swap Sources... $(DEF_COLOR)\n\n"
+	@make PUSHSWAP_LOOP --no-print-directory
+
+PUSHSWAP_LOOP:
+	@mkdir -p $(PUSHSWAP_OBJS_PATH)
+	@for file in $(PUSHSWAP_SRCS); do \
+	if [ $$file.c -nt $(PUSHSWAP_OBJS_PATH)$$file.o ]; then \
+			printf "$(GREEN)[libft] $(CYAN)Compiling $(WHITE)$$file.c...$(DEF_COLOR)\n"; \
+			$(CC) $(CFLAGS) -c $$file.c -o $(PUSHSWAP_OBJS_PATH)$$file.o; \
+			printf "$(CC) $(CFLAGS) -c $$file.c -o $(PUSHSWAP_OBJS_PATH)$$file.o$(DEF_COLOR)\n"; \
+			printf "$(WHITE)$$file.c $(GREEN)OK$(DEF_COLOR)\n\n"; \
+	fi; \
+	done
 
 FDF_LOOP :
 	@mkdir -p $(FDF_OBJS_PATH)
@@ -398,6 +455,13 @@ clean_bonus :
 	fi
 	@rm -f a.out
 
+clean_pushswap:
+	@if [ -d $(PUSHSWAP_OBJS_PATH) ]; then \
+		rm -rf $(PUSHSWAP_OBJS_PATH); \
+		printf "$(RED)Pushswap Objects Removed$(DEF_COLOR)\n"; \
+	fi
+	@rm -f a.out
+
 fclean_all : fclean_printf fclean_fdf fclean_bonus fclean
 
 fclean :
@@ -443,6 +507,13 @@ fclean_bonus :
 		printf "$(RED)$(NAME_BONUS) Removed$(DEF_COLOR)\n"; \
 	fi
 
+fclean_pushswap :
+	@make clean_pushswap --no-print-directory;
+	@if [ -f $(NAME_PUSHSWAP) ]; then \
+		rm -f $(NAME_PUSHSWAP); \
+		printf "$(RED)$(NAME_PUSHSWAP) Removed$(DEF_COLOR)\n"; \
+	fi
+
 re : fclean all
 
 re_printf : fclean_printf srcs_to_printf
@@ -450,5 +521,3 @@ re_printf : fclean_printf srcs_to_printf
 re_fdf : fclean_fdf srcs_to_fdf
 
 re_bonus : fclean_bonus srcs_to_bonus
-
-phony : all clean fclean re bonus printf

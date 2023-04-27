@@ -85,7 +85,7 @@ LIBFT_OBJS = $(patsubst %, $(LIBFT_OBJS_PATH)%.o, $(LIBFT_SRCS))
 all: $(NAME)
 
 make_libft:
-	@make -C $(LIBFT_PATH) --no-print-directory
+	@make -C $(LIBFT_PATH) --no-print-directory srcs_to_push_swap
 
 $(NAME): $(OBJS) make_libft
 	@printf "\n$(YELLOW)Linking FDF Objects to Library...$(DEF_COLOR)\n";
@@ -100,7 +100,7 @@ $(NAME): $(OBJS) make_libft
 	fi; \
 	done
 	@printf "$(CYAN)Creating $(EXECUTABLE)$(DEF_COLOR)                                                       \n";\
-	$(CC) $(CFLAGS) $(NAME) $(LIBFT_PATH)libft.a -o $(EXECUTABLE);
+	$(CC) $(CFLAGS) $(NAME) $(LIBFT_PATH)srcs_to_push_swap.a -o $(EXECUTABLE);
 	@printf "$(WHITE)Created Library $(RED)$(NAME)$(DEF_COLOR)                                             	 \n";
 	@printf "\njust execute $(GREEN)./$(EXECUTABLE) $(GRAY)to run the program\n$(DEF_COLOR)                  \n";
 
@@ -119,7 +119,7 @@ LOOP:
 	done
 
 clean:
-	@make -C $(LIBFT_PATH) clean --no-print-directory
+	@make -C $(LIBFT_PATH) clean_pushswap --no-print-directory
 	@rm -rf $(OBJS_PATH)
 	@rm -rf $(BOBJS_PATH)
 	@rm -rf $(ALT_OBJS_PATH)
@@ -141,7 +141,7 @@ fclean_nolib: clean_nolib
 	@rm -f shuf8
 
 fclean: fclean_nolib
-	@make -C $(LIBFT_PATH) fclean --no-print-directory
+	@make -C $(LIBFT_PATH) fclean_pushswap --no-print-directory
 
 re: fclean all
 
@@ -165,7 +165,7 @@ debug: make_libft $(ALT_OBJS)
 	fi; \
 	done
 	@printf "$(CYAN)Creating $(ALT_EXECUTABLE)$(DEF_COLOR)                                                    \n";\
-	$(CC) $(CFLAGS) $(ALT_NAME) $(LIBFT_PATH)libft.a -o $(ALT_EXECUTABLE);
+	$(CC) $(CFLAGS) $(ALT_NAME) $(LIBFT_PATH)srcs_to_push_swap.a -o $(ALT_EXECUTABLE);
 	@printf "$(WHITE)Created Library $(RED)$(ALT_NAME)$(DEF_COLOR)                                            \n";
 	@printf "\njust execute $(GREEN)./$(ALT_EXECUTABLE) $(GRAY)to run the program\n$(DEF_COLOR)               \n";
 
@@ -200,7 +200,7 @@ $(NAME_BONUS): $(BOBJS) make_libft
 	fi; \
 	done
 	@printf "$(CYAN)Creating $(BONUS_EXECUTABLE)$(DEF_COLOR)                                                    \n";\
-	$(CC) $(CFLAGS) $(NAME_BONUS) $(LIBFT_PATH)libft.a -o $(BONUS_EXECUTABLE);
+	$(CC) $(CFLAGS) $(NAME_BONUS) $(LIBFT_PATH)srcs_to_push_swap.a -o $(BONUS_EXECUTABLE);
 	@printf "$(WHITE)Created Library $(RED)$(NAME_BONUS)$(DEF_COLOR)                                            \n";
 	@printf "\njust execute $(GREEN)./$(BONUS_EXECUTABLE) $(GRAY)to run the program\n$(DEF_COLOR)               \n";
 

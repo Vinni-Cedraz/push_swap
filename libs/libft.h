@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 18:05:11 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/22 12:08:33 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/27 14:54:30 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,7 +201,7 @@ int			ft_ishexup(char *s);
 // hex low:
 int			ft_ishexlow(char *s);
 // throws error:
-void		ft_error(char *error_msg);
+int			ft_error(void);
 // returns 1 if char is a whitespace, 0 otherwise
 int			ft_iswhitespace(char c);
 // randomizes membeers of an array in place:
