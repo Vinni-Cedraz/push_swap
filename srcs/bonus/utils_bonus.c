@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 22:00:31 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/27 21:23:05 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/04/28 12:16:57 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	read_args(char **argv, t_stack *a, int last_index)
 	int	*stack;
 
 	if (last_index + 2 == 1)
-		return (ft_error());
+		return (0);
 	i = last_index;
 	j = -1;
 	while (++j <= last_index)
