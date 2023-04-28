@@ -1,0 +1,782 @@
+[
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_abs.c",
+   "-o",
+   "./objs/ft_abs.o"
+  ],
+  "file": "ft_abs.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_atoi.c",
+   "-o",
+   "./objs/ft_atoi.o"
+  ],
+  "file": "ft_atoi.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_atol.c",
+   "-o",
+   "./objs/ft_atol.o"
+  ],
+  "file": "ft_atol.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_free_t_split.c",
+   "-o",
+   "./objs/ft_free_t_split.o"
+  ],
+  "file": "ft_free_t_split.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_free_arr.c",
+   "-o",
+   "./objs/ft_free_arr.o"
+  ],
+  "file": "ft_free_arr.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_free_arr_size.c",
+   "-o",
+   "./objs/ft_free_arr_size.o"
+  ],
+  "file": "ft_free_arr_size.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_iswhitespace.c",
+   "-o",
+   "./objs/ft_iswhitespace.o"
+  ],
+  "file": "ft_iswhitespace.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_isalpha.c",
+   "-o",
+   "./objs/ft_isalpha.o"
+  ],
+  "file": "ft_isalpha.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_isascii.c",
+   "-o",
+   "./objs/ft_isascii.o"
+  ],
+  "file": "ft_isascii.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_isdigit.c",
+   "-o",
+   "./objs/ft_isdigit.o"
+  ],
+  "file": "ft_isdigit.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_ishexup.c",
+   "-o",
+   "./objs/ft_ishexup.o"
+  ],
+  "file": "ft_ishexup.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_error.c",
+   "-o",
+   "./objs/ft_error.o"
+  ],
+  "file": "ft_error.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_ishexlow.c",
+   "-o",
+   "./objs/ft_ishexlow.o"
+  ],
+  "file": "ft_ishexlow.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_memchr.c",
+   "-o",
+   "./objs/ft_memchr.o"
+  ],
+  "file": "ft_memchr.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_memcmp.c",
+   "-o",
+   "./objs/ft_memcmp.o"
+  ],
+  "file": "ft_memcmp.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_memcpy.c",
+   "-o",
+   "./objs/ft_memcpy.o"
+  ],
+  "file": "ft_memcpy.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_memorylen.c",
+   "-o",
+   "./objs/ft_memorylen.o"
+  ],
+  "file": "ft_memorylen.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_memset.c",
+   "-o",
+   "./objs/ft_memset.o"
+  ],
+  "file": "ft_memset.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_numlen.c",
+   "-o",
+   "./objs/ft_numlen.o"
+  ],
+  "file": "ft_numlen.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_putchar.c",
+   "-o",
+   "./objs/ft_putchar.o"
+  ],
+  "file": "ft_putchar.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_putchar_fd.c",
+   "-o",
+   "./objs/ft_putchar_fd.o"
+  ],
+  "file": "ft_putchar_fd.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_randomize_array.c",
+   "-o",
+   "./objs/ft_randomize_array.o"
+  ],
+  "file": "ft_randomize_array.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strlen.c",
+   "-o",
+   "./objs/ft_strlen.o"
+  ],
+  "file": "ft_strlen.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_atoi_base.c",
+   "-o",
+   "./objs/ft_atoi_base.o"
+  ],
+  "file": "ft_atoi_base.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strncmp.c",
+   "-o",
+   "./objs/ft_strncmp.o"
+  ],
+  "file": "ft_strncmp.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_word_counter.c",
+   "-o",
+   "./objs/ft_word_counter.o"
+  ],
+  "file": "ft_word_counter.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_calloc.c",
+   "-o",
+   "./objs/ft_calloc.o"
+  ],
+  "file": "ft_calloc.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_memmove.c",
+   "-o",
+   "./objs/ft_memmove.o"
+  ],
+  "file": "ft_memmove.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_putnbr_fd.c",
+   "-o",
+   "./objs/ft_putnbr_fd.o"
+  ],
+  "file": "ft_putnbr_fd.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_putstr.c",
+   "-o",
+   "./objs/ft_putstr.o"
+  ],
+  "file": "ft_putstr.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_putstr_fd.c",
+   "-o",
+   "./objs/ft_putstr_fd.o"
+  ],
+  "file": "ft_putstr_fd.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_striteri.c",
+   "-o",
+   "./objs/ft_striteri.o"
+  ],
+  "file": "ft_striteri.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strrchr.c",
+   "-o",
+   "./objs/ft_strrchr.o"
+  ],
+  "file": "ft_strrchr.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strrevcpy.c",
+   "-o",
+   "./objs/ft_strrevcpy.o"
+  ],
+  "file": "ft_strrevcpy.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_swap.c",
+   "-o",
+   "./objs/ft_swap.o"
+  ],
+  "file": "ft_swap.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_tolower.c",
+   "-o",
+   "./objs/ft_tolower.o"
+  ],
+  "file": "ft_tolower.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_toupper.c",
+   "-o",
+   "./objs/ft_toupper.o"
+  ],
+  "file": "ft_toupper.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_bzero.c",
+   "-o",
+   "./objs/ft_bzero.o"
+  ],
+  "file": "ft_bzero.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_isalnum.c",
+   "-o",
+   "./objs/ft_isalnum.o"
+  ],
+  "file": "ft_isalnum.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_putendl_fd.c",
+   "-o",
+   "./objs/ft_putendl_fd.o"
+  ],
+  "file": "ft_putendl_fd.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strchr.c",
+   "-o",
+   "./objs/ft_strchr.o"
+  ],
+  "file": "ft_strchr.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strdup.c",
+   "-o",
+   "./objs/ft_strdup.o"
+  ],
+  "file": "ft_strdup.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strlcat.c",
+   "-o",
+   "./objs/ft_strlcat.o"
+  ],
+  "file": "ft_strlcat.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strlcpy.c",
+   "-o",
+   "./objs/ft_strlcpy.o"
+  ],
+  "file": "ft_strlcpy.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strmapi.c",
+   "-o",
+   "./objs/ft_strmapi.o"
+  ],
+  "file": "ft_strmapi.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strnstr.c",
+   "-o",
+   "./objs/ft_strnstr.o"
+  ],
+  "file": "ft_strnstr.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strjoin.c",
+   "-o",
+   "./objs/ft_strjoin.o"
+  ],
+  "file": "ft_strjoin.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_strtrim.c",
+   "-o",
+   "./objs/ft_strtrim.o"
+  ],
+  "file": "ft_strtrim.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_substr.c",
+   "-o",
+   "./objs/ft_substr.o"
+  ],
+  "file": "ft_substr.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_gnl.c",
+   "-o",
+   "./objs/ft_gnl.o"
+  ],
+  "file": "ft_gnl.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_itoa.c",
+   "-o",
+   "./objs/ft_itoa.o"
+  ],
+  "file": "ft_itoa.c"
+ },
+ {
+  "directory": "/home/vcedraz-/pushswap/libs",
+  "arguments": [
+   "cc",
+   "-Wall",
+   "-Werror",
+   "-Wextra",
+   "-O3",
+   "-c",
+   "ft_split.c",
+   "-o",
+   "./objs/ft_split.o"
+  ],
+  "file": "ft_split.c"
+ }
+]

@@ -69,7 +69,7 @@ BSRCS = \
 SRCS_PATH = srcs/mandatory/
 BSRCS_PATH = srcs/bonus/
 OBJS_PATH = objs/mandatory/
-BOBJS_PATH = objs/bobjs/
+BOBJS_PATH = objs/bonus/
 ALT_SRCS_PATH = srcs/
 ALT_OBJS_PATH = alt_objs/
 LIBFT_OBJS_PATH = $(LIBFT_PATH)objs/
@@ -120,7 +120,7 @@ LOOP:
 
 clean:
 	@make -C $(LIBFT_PATH) clean_pushswap --no-print-directory
-	@rm -rf $(OBJS_PATH)
+	@rm -rf ./objs/
 	@rm -rf $(BOBJS_PATH)
 	@rm -rf $(ALT_OBJS_PATH)
 
@@ -140,7 +140,7 @@ fclean_nolib: clean_nolib
 	@rm -f shuf5
 	@rm -f shuf8
 
-fclean: fclean_nolib
+fclean: fclean_nolib clean
 	@make -C $(LIBFT_PATH) fclean_pushswap --no-print-directory
 
 re: fclean all
@@ -185,7 +185,7 @@ ALT_LOOP:
 
 #################################### BONUS PROJECT #############################################
 
-bonus: make_libft $(NAME_BONUS)
+bonus: all $(NAME_BONUS)
 
 $(NAME_BONUS): $(BOBJS) make_libft
 	@printf "\n$(YELLOW)Linking FDF Objects to Library...$(DEF_COLOR)\n";
