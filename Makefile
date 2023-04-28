@@ -66,9 +66,9 @@ BSRCS = \
 		hashtable_bonus \
 		has_duplicates_bonus
 
-SRCS_PATH = srcs/
+SRCS_PATH = srcs/mandatory/
 BSRCS_PATH = srcs/bonus/
-OBJS_PATH = objs/
+OBJS_PATH = objs/mandatory/
 BOBJS_PATH = objs/bobjs/
 ALT_SRCS_PATH = srcs/
 ALT_OBJS_PATH = alt_objs/
