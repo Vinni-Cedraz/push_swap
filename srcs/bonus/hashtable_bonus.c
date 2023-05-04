@@ -6,7 +6,7 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 19:08:45 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/23 13:05:19 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/04 21:43:09 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ t_instruction	*create_hash_table(void)
 	t_instruction	*cmd_table;
 
 	cmd_table = ft_calloc(sizeof(t_instruction), 2000);
-	cmd_table[hash_function("pa")] = &pa;
-	cmd_table[hash_function("pb")] = &pb;
-	cmd_table[hash_function("sa")] = &sa;
-	cmd_table[hash_function("sb")] = &sb;
-	cmd_table[hash_function("ss")] = &ss;
-	cmd_table[hash_function("ra")] = &ra;
-	cmd_table[hash_function("rb")] = &rb;
-	cmd_table[hash_function("rr")] = &rr;
-	cmd_table[hash_function("rra")] = &rra;
-	cmd_table[hash_function("rrb")] = &rrb;
-	cmd_table[hash_function("rrr")] = &rrr;
+	cmd_table[hash_function("pa\n")] = &pa;
+	cmd_table[hash_function("pb\n")] = &pb;
+	cmd_table[hash_function("sa\n")] = &sa;
+	cmd_table[hash_function("sb\n")] = &sb;
+	cmd_table[hash_function("ss\n")] = &ss;
+	cmd_table[hash_function("ra\n")] = &ra;
+	cmd_table[hash_function("rb\n")] = &rb;
+	cmd_table[hash_function("rr\n")] = &rr;
+	cmd_table[hash_function("rra\n")] = &rra;
+	cmd_table[hash_function("rrb\n")] = &rrb;
+	cmd_table[hash_function("rrr\n")] = &rrr;
 	return (cmd_table);
 }
 
@@ -38,7 +38,7 @@ size_t	hash_function(char *end)
 
 	hash = 5381;
 	start = end;
-	while (*end)
+	while (*end != '\n')
 	{
 		hash = ((hash << 5) + hash) + *end;
 		end++;

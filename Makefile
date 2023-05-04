@@ -1,4 +1,5 @@
 SHELL := /bin/bash
+
 # Colors
 RED    	  	=  \033[0;91m
 GRAY      	=  \033[0;37m
@@ -36,7 +37,6 @@ SRCS = \
 	  parsing_utils \
 	  swap \
 	  init_data
-		
 
 ALT_SRCS = \
 		   main_debug \

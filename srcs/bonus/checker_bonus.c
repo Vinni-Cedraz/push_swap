@@ -6,11 +6,12 @@
 /*   By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 20:01:12 by vcedraz-          #+#    #+#             */
-/*   Updated: 2023/04/27 21:27:50 by vcedraz-         ###   ########.fr       */
+/*   Updated: 2023/05/04 21:43:35 by vcedraz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap_bonus.h"
+#include <stdio.h>
 #include <string.h>
 
 static void	free_stuff_exit(t_stack *a, t_stack *b, t_tool *tool, int is_error);
@@ -66,17 +67,16 @@ static void	read_instructions(t_stack *a, t_stack *b, t_tool *tool)
 
 static int	exec_instruction(t_stack *a, t_stack *b, char *ln, t_tool *t)
 {
-	char	*clean_line;
-
-	clean_line = ft_strtrim(ln, WHITESPACES);
-	free(ln);
-	if (t->instruction_table[hash_function(clean_line)])
+	if (hash_function(ln))
 	{
-		t->instruction_table[hash_function(clean_line)](a, b, 0);
-		free(clean_line);
-		return (1);
+		if (t->instruction_table[hash_function(ln)])
+		{
+			t->instruction_table[hash_function(ln)](a, b, 0);
+			free(ln);
+			return (1);
+		}
 	}
-	free(clean_line);
+	free(ln);
 	return (0);
 }
 

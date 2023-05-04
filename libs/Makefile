@@ -6,7 +6,7 @@
 #    By: vcedraz- <vcedraz-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/28 11:11:55 by vcedraz-          #+#    #+#              #
-#    Updated: 2023/04/27 16:03:09 by vcedraz-         ###   ########.fr        #
+#    Updated: 2023/05/04 18:34:37 by vcedraz-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -182,8 +182,6 @@ PUSHSWAP_SRCS = \
 				ft_iswhitespace \
 				ft_isdigit \
 				ft_gnl \
-				ft_substr \
-				ft_strtrim \
 				ft_strjoin \
 				ft_strlen \
 				ft_memchr \
