@@ -21,6 +21,11 @@ int	main(int argc, char **argv)
 	t_data	*data;
 
 	data = init_data(argc, argv + 1);
+	if (data->argv && !data->argv[0])
+	{
+		destroy_data(data);
+		return (ft_error());
+	}
 	if (!read_args(data->a, data))
 		destroy_data(data);
 	if (has_duplicates(data->a->stack, argc - 1))

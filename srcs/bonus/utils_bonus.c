@@ -36,6 +36,8 @@ int	read_args(char **argv, t_stack *a, int last_index)
 	int	j;
 	int	*stack;
 
+	if (argv[0] && argv[0][0] == 0)
+		return (ft_error());
 	if (last_index + 2 == 1)
 		return (0);
 	i = last_index;
@@ -62,8 +64,6 @@ int	is_valid_number(char *str)
 	int	i;
 
 	i = 0;
-	if (*str == '\0')
-		return (0);
 	while (ft_iswhitespace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')
