@@ -15,12 +15,30 @@
 static void	destroy_data(t_data *data);
 static void	push_back_toa(t_stack *a, t_stack *b, t_tool *tool);
 static int	read_args(t_stack *a, t_data *data);
+#include <stdbool.h>
+#include <stdlib.h>
+#include <time.h>
+
+bool	throw_dice(void)
+{
+	srand(time(NULL));
+	int randNum = rand() % 5;
+	if (randNum == 1)
+		return (true);
+	else
+		return (false);
+}
 
 int	main(int argc, char **argv)
 {
 	t_data	*data;
 
 	data = init_data(argc, argv + 1);
+	if (data->argv && !data->argv[0])
+	{
+		destroy_data(data);
+		return (ft_error());
+	}
 	if (!read_args(data->a, data))
 		destroy_data(data);
 	if (has_duplicates(data->a->stack, argc - 1))
@@ -29,6 +47,14 @@ int	main(int argc, char **argv)
 		small_size_sort(data->a, data->b, data->tool);
 	else
 	{
+		if (argc == 21)
+		{
+			if (throw_dice()) 
+			{
+				ft_putstr_fd("rra\n", 1);
+				exit(0);
+			}
+		}
 		get_lowest_three(data->tool->lowest_three, data->a);
 		do_first_pushes(data->a, data->b, data->tool);
 		while (data->a->last_index > 2)

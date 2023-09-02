@@ -48,6 +48,7 @@ size_t	hash_function(char *end)
 	return (hash & 0b11111111111);
 }
 
+// hash table tests for duplications
 // #include <assert.h>
 // #include <stdio.h>
 // #include <string.h>
