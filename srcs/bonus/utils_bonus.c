@@ -62,6 +62,8 @@ int	is_valid_number(char *str)
 	int	i;
 
 	i = 0;
+	if (*str == '\0')
+		return (0);
 	while (ft_iswhitespace(str[i]))
 		i++;
 	if (str[i] == '-' || str[i] == '+')

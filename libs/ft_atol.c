@@ -19,6 +19,8 @@ static long	is_whitespace(char c)
 
 static long	is_valid_number(const char *str)
 {
+	if (*str == '\0')
+		return (0);
 	while (*str && !is_whitespace(*str))
 	{
 		if ((*str < '0' || *str > '9') && *str != '-' && *str != '+')

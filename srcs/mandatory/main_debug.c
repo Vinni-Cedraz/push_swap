@@ -75,14 +75,14 @@ static void	read_args(char **argv, t_stack *a, int last_index)
 	j = -1;
 	while (++j <= last_index)
 		if (!is_valid_number(argv[j]))
-			ft_error("invalid number found");
+			ft_error();
 	j = 0;
 	stack = a->stack;
 	a->last_index = i;
 	while (i + 1)
 	{
 		if (ft_atol(argv[i]) > __INT_MAX__ || ft_atol(argv[i]) < -__INT_MAX__)
-			ft_error("a number is too big or too small");
+			ft_error();
 		stack[j] = ft_atol(argv[i]);
 		i--;
 		j++;

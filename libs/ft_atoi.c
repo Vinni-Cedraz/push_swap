@@ -43,6 +43,8 @@ static int	is_valid_number(const char *str)
 	{
 		if ((*str < '0' || *str > '9') && *str != '-' && *str != '+')
 			return (0);
+		if ((*str == '\0'))
+			return (0);
 		str++;
 	}
 	return (1);
